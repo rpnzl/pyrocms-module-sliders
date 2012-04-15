@@ -1,0 +1,1 @@
+# PyroCMS Sliders Module
