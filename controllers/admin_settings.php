@@ -14,41 +14,6 @@ class Admin_settings extends Admin_Controller {
 	protected $section = 'settings';
 
 	/**
-	 * Validation rules used by the form_validation library
-	 *
-	 * @var array
-	 */
-	private $validation_rules = array(
-		/*
-		array(
-			'field' => 'title',
-			'label' => 'lang:page_layouts.title_label',
-			'rules' => 'trim|required|max_length[60]'
-		),
-		array(
-			'field' => 'theme_layout',
-			'label' => 'lang:page_layouts.theme_layout_label',
-			'rules' => 'trim'
-		),
-		array(
-			'field' => 'body',
-			'label' => 'lang:page_layouts.body_label',
-			'rules' => 'trim|required'
-		),
-		array(
-			'field' => 'css',
-			'label' => 'lang:page_layouts.css_label',
-			'rules' => 'trim'
-		),
-		array(
-			'field' => 'js',
-			'label' => 'lang:page.js_label',
-			'rules' => 'trim'
-		),
-		*/
-	);
-
-	/**
 	 * Constructor method
 	 *
 	 * Loads the form_validation library, the pages, pages layout
@@ -65,7 +30,7 @@ class Admin_settings extends Admin_Controller {
 		$this->lang->load('sliders');
 
 		// Load the validation library
-		$this->load->library('form_validation');
+		//$this->load->library('form_validation');
 
 		// Set the validation rules
 		//$this->form_validation->set_rules($this->validation_rules);
@@ -76,7 +41,6 @@ class Admin_settings extends Admin_Controller {
 	 */
 	public function index()
 	{
-		/*
 		if ($_POST)
 		{
 			// Set validation rules from model
@@ -103,10 +67,9 @@ class Admin_settings extends Admin_Controller {
 					$this->session->set_flashdata('error', 'Settings updated failed.'));
 				}
 
-				redirect('admin/sliders/setup');
+				redirect('admin/sliders/settings');
 			}
 		}
-		*/
 
 		// Loop through each validation rule
 		/*
@@ -117,8 +80,13 @@ class Admin_settings extends Admin_Controller {
 		*/
 
 		$this->template
-			->title($this->module_details['name']);
-			//->set('settings', $this->slider_settings_m->get_all())
-			//->build('admin/settings/index');
+			->title($this->module_details['name'])
+			->set('settings', $this->slider_settings_m->get_all())
+			->build('admin/settings/index', $data);
+	}
+
+	public function create()
+	{
+		$this->template->get_theme_path();
 	}
 }
