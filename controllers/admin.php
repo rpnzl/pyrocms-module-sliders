@@ -90,7 +90,9 @@ class Admin extends Admin_Controller {
 				$this->session->set_flashdata('error', 'Slider was not created.');
 			}
 
-			redirect('admin/sliders');
+			$this->input->post('btnAction') == 'save_exit' ?
+				redirect('admin/sliders') :
+				redirect('admin/sliders/edit/' . $id);
 		}
 
 		// Loop through each validation rule
@@ -131,7 +133,9 @@ class Admin extends Admin_Controller {
 				$this->session->set_flashdata('error', 'Slider was not updated.');
 			}
 
-			redirect('admin/sliders');
+			$this->input->post('btnAction') == 'save_exit' ?
+				redirect('admin/sliders') :
+				redirect('admin/sliders/edit/' . $id);
 		}
 
 		// Loop through each validation rule
