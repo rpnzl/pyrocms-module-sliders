@@ -25,8 +25,7 @@ class Admin extends Admin_Controller {
 		parent::__construct();
 
 		// Load the required classes
-		$this->load->model('slider_settings_m');
-		$this->load->model('slider_m');
+		$this->load->model(array('slider_settings_m', 'slider_m'));
 		$this->lang->load('sliders');
 
 		// Load the validation library
@@ -39,26 +38,20 @@ class Admin extends Admin_Controller {
 		//$this->form_validation->set_rules($this->validation_rules);
 	}
 
-	/**
-	 * Index methods, lists all pages
-	 */
+
 	public function index()
 	{
-		$this->template->build('admin/index');
-
-			//->title($this->module_details['name'])
-			//->append_js('module::index.js')
-			//->append_css('module::index.css')
-			//->set('sliders', $this->slider_m->get_all())
+		$this->template
+			->title($this->module_details['name'])
+			->set('sliders', $this->slider_m->get_all())
+			->build('admin/index');
 	}
+
 
 	public function create()
 	{
 		$this->template
 			->title($this->module_details['name'])
-			//->append_js('module::index.js')
-			//->append_css('module::index.css')
-			->set('sliders', $this->slider_m->get_all())
 			->build('admin/form');
 	}
 }
