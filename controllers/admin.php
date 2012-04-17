@@ -124,11 +124,11 @@ class Admin extends Admin_Controller {
 
 			if ($success = $this->slider_m->update($id, $props))
 			{
-				$this->session->set_flashdata('success', 'Slider created.');
+				$this->session->set_flashdata('success', 'Slider updated.');
 			}
 			else
 			{
-				$this->session->set_flashdata('error', 'Slider was not created.');
+				$this->session->set_flashdata('error', 'Slider was not updated.');
 			}
 
 			redirect('admin/sliders');
@@ -153,22 +153,18 @@ class Admin extends Admin_Controller {
 
 	public function delete($id = 0)
 	{
-		/*
-		$id_array = (!empty($id)) ? array($id) : $this->input->post('action_to');
+		$slider = $this->slider_m->get($id);
+		$slider OR redirect('admin/sliders');
 
-		// Loop through each item to delete
-		if(!empty($id_array))
+		if ($success = $this->slider_m->delete($id))
 		{
-			foreach ($id_array as $id)
-			{
-				$this->navigation_m->delete_link($id);
-			}
-
-			Events::trigger('post_navigation_delete', $id_array);
+			$this->session->set_flashdata('success', 'Slider deleted.');
 		}
-		// Flush the cache and redirect
-		$this->session->set_flashdata('success', $this->lang->line('nav_link_delete_success'));
-		*/
+		else
+		{
+			$this->session->set_flashdata('error', 'Slider was not deleted.');
+		}
+
 		redirect('admin/sliders');
 	}
 }
