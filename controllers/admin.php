@@ -55,12 +55,18 @@ class Admin extends Admin_Controller {
 	}
 
 
+
+
+
 	public function index()
 	{
 		$this->template
 			->set('sliders', $this->slider_m->get_all())
 			->build('admin/index');
 	}
+
+
+
 
 
 	public function create()
@@ -93,9 +99,54 @@ class Admin extends Admin_Controller {
 			$slider_m->{$rule['field']} = set_value($rule['field']);
 		}
 
+		$this->template->build('admin/form');
+	}
+
+
+
+
+
+
+
+	public function edit($id = 0)
+	{
+		$slider = $this->slider_m->get($id);
+		$slider OR redirect('admin/sliders');
+
+		// If val is run
+		if ($this->form_validation->run())
+		{
+			// Get posted vars
+			$props = array(
+				'title' => $this->input->post('title'),
+				'updated_on' => now(),
+			);
+
+			if ($success = $this->slider_m->update($id, $props))
+			{
+				$this->session->set_flashdata('success', 'Slider created.');
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'Slider was not created.');
+			}
+
+			redirect('admin/sliders');
+		}
+
+		// Loop through each validation rule
+		foreach ($this->_validation_rules as $rule)
+		{
+			$slider_m->{$rule['field']} = set_value($rule['field']);
+		}
+
 		$this->template
+			->set('slider', $slider)
 			->build('admin/form');
 	}
+
+
+
 
 
 

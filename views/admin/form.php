@@ -16,12 +16,12 @@
 		</ul>
 		
 		<!-- Content tab -->
-		<div class="" id="slider-content">
+		<div id="slider-content">
 			<fieldset>
 				<ul>
 					<li class="<?php echo alternator('even', ''); ?>">
 						<label for="title"><?php echo lang('sliders.title_label');?> <span>*</span></label>
-						<div class="input"><?php echo form_input('title', $slider['title'], 'id="title" maxlength="60"'); ?></div>
+						<div class="input"><?php echo form_input('title', $slider->title, 'id="title" maxlength="60"'); ?></div>
 					</li>
 				</ul>
 			</fieldset>
