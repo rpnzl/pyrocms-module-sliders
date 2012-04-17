@@ -2,7 +2,7 @@
 	<section class="title">
 		<h4><?php echo lang('sliders.setup_title'); ?></h4>
 	</section>
-	
+
 	<section class="item">
 		<?php echo form_open(uri_string(), 'class="crud"'); ?>
 			<?php echo form_hidden('id', $settings->id); ?>

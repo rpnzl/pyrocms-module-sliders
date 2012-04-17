@@ -35,7 +35,7 @@ class Admin extends Admin_Controller {
 			->title($this->module_details['name']);
 
 		// Set the validation rules
-		//$this->form_validation->set_rules($this->validation_rules);
+		$this->form_validation->set_rules($this->validation_rules);
 	}
 
 
