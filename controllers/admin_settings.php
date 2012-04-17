@@ -24,7 +24,7 @@ class Admin_settings extends Admin_Controller {
 		array(
 			'field' => 'jquery',
 			'label' => 'jQuery',
-			'rules' => 'trim|required'
+			'rules' => 'trim|required|numeric'
 		),
 	);
 
@@ -49,6 +49,9 @@ class Admin_settings extends Admin_Controller {
 
 		// Set the validation rules
 		$this->form_validation->set_rules($this->_validation_rules);
+
+		$this->template
+			->title($this->module_details['name']);
 	}
 
 
@@ -89,7 +92,6 @@ class Admin_settings extends Admin_Controller {
 		$settings = $settings[0];
 
 		$this->template
-			->title($this->module_details['name'])
 			->set('settings', $settings)
 			->build('admin/settings/index');
 	}
