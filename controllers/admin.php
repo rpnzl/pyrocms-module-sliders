@@ -231,6 +231,58 @@ class Admin extends Admin_Controller {
 
 
 
+	/**
+	 * Helper method to determine what to do with selected items from form post
+	 * @access public
+	 * @return void
+	 */
+	public function action()
+	{
+		switch ($this->input->post('btnAction'))
+		{	
+			case 'delete':
+				$this->delete();
+			break;
+			
+			default:
+				redirect('admin/sliders');
+			break;
+		}
+	}
+
+
+
+
+	public function delete($id = 0)
+	{
+		// Delete one
+		$ids = ($id) ? array($id) : $this->input->post('action_to');
+
+		// Go through the array of slugs to delete
+		if ( ! empty($ids))
+		{
+			foreach ($ids as $id)
+			{
+				if ($success = $this->slider_m->delete($id))
+				{
+					$this->session->set_flashdata('success', 'Sliders deleted.');
+				}
+				else
+				{
+					$this->session->set_flashdata('error', 'Slider was not deleted.');
+				}
+			}
+			
+			// Fire an event. We've deleted one or more blog posts.
+			Events::trigger('blog_article_deleted', $deleted_ids);
+		}
+		redirect('admin/sliders');
+	}
+
+
+
+
+	/*
 	public function delete($id = 0)
 	{
 		$slider = $this->slider_m->get($id);
@@ -247,4 +299,5 @@ class Admin extends Admin_Controller {
 
 		redirect('admin/sliders');
 	}
+	*/
 }
