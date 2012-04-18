@@ -190,7 +190,7 @@ class Admin extends Admin_Controller {
 				'updated_on' => now(),
 			);
 
-			// Insert new slider
+			// Update slider
 			if ($success = $this->slider_m->update($id, $props))
 			{
 				$this->session->set_flashdata('success', 'Slider created.');
