@@ -81,17 +81,50 @@ class Admin extends Admin_Controller {
 
 	public function create()
 	{
-		// If val is run
+		// Get general settings
+		$settings 	= $this->slider_settings_m->get_all();
+		$settings 	= $settings[0];
+
+		// If validation is run
 		if ($this->form_validation->run())
 		{
-			// Get posted vars
+			// If user wants to create a new folder
+			if($this->input->post('folder_id') == 0)
+			{
+				// Create new folder slug
+				$folder_slug = preg_replace('/\W/i', '-', strtolower($this->input->post('title')));
+
+				// Set new folder props
+				$folder_props = array(
+					'id'		=> null,
+					'parent_id'	=> $settings->folder_id,
+					'slug'		=> $folder_slug,
+					'name'		=> $this->input->post('title'),
+					'location'	=> 'local',
+				);
+
+				// Insert the record
+				if( ! $folder_id = $this->file_folders_m->insert($folder_props))
+				{
+					return false;
+				}
+			}
+			else
+			{
+				// Otherwise, just use the posted folder id
+				$folder_id = $this->input->post('folder_id');
+			}
+
+
+			// Set slider props
 			$props = array(
 				'title' => $this->input->post('title'),
-				'folder_id' => $this->input->post('folder_id'),
+				'folder_id' => $folder_id,
 				'created_on' => now(),
 				'updated_on' => now(),
 			);
 
+			// Insert new slider
 			if ($id = $this->slider_m->insert($props))
 			{
 				$this->session->set_flashdata('success', 'Slider created.');
@@ -112,8 +145,7 @@ class Admin extends Admin_Controller {
 			$slider_m->{$rule['field']} = set_value($rule['field']);
 		}
 
-		$settings 	= $this->slider_settings_m->get_all();
-		$settings 	= $settings[0];
+
 		$query = $this->db->get_where('file_folders', array('parent_id' => $settings->folder_id));
 		$folder_opts[0] = 'Create a new folder';
 		foreach($query->result() as $row)
@@ -134,26 +166,61 @@ class Admin extends Admin_Controller {
 
 	public function edit($id = 0)
 	{
+		// Get requested slider or redirect out
 		$slider = $this->slider_m->get($id);
 		$slider OR redirect('admin/sliders');
 
-		// If val is run
+		// Get general settings
+		$settings 	= $this->slider_settings_m->get_all();
+		$settings 	= $settings[0];
+
+		// If validation is run
 		if ($this->form_validation->run())
 		{
-			// Get posted vars
-			$props = array(
-				'title' => $this->input->post('title'),
-				'folder_id' => $this->input->post('folder_ids'),
-				'updated_on' => now(),
-			);
-
-			if ($success = $this->slider_m->update($id, $props))
+			// If user wants to create a new folder
+			if($this->input->post('folder_id') == 0)
 			{
-				$this->session->set_flashdata('success', 'Slider updated.');
+				// Create new folder slug
+				$folder_slug = preg_replace('/\W/i', '-', strtolower($this->input->post('title')));
+
+				// Set new folder props
+				$folder_props = array(
+					'id'		=> null,
+					'parent_id'	=> $settings->folder_id,
+					'slug'		=> $folder_slug,
+					'name'		=> $this->input->post('title'),
+					'location'	=> 'local',
+				);
+
+				// Insert the record
+				if( ! $folder_id = $this->file_folders_m->insert($folder_props))
+				{
+					return false;
+				}
 			}
 			else
 			{
-				$this->session->set_flashdata('error', 'Slider was not updated.');
+				// Otherwise, just use the posted folder id
+				$folder_id = $this->input->post('folder_id');
+			}
+
+
+			// Set slider props
+			$props = array(
+				'title' => $this->input->post('title'),
+				'folder_id' => $folder_id,
+				'created_on' => now(),
+				'updated_on' => now(),
+			);
+
+			// Insert new slider
+			if ($success = $this->slider_m->update($id, $props))
+			{
+				$this->session->set_flashdata('success', 'Slider created.');
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'Slider was not created.');
 			}
 
 			$this->input->post('btnAction') == 'save_exit' ?
@@ -167,8 +234,7 @@ class Admin extends Admin_Controller {
 			$slider_m->{$rule['field']} = set_value($rule['field']);
 		}
 
-		$settings 	= $this->slider_settings_m->get_all();
-		$settings 	= $settings[0];
+
 		$query = $this->db->get_where('file_folders', array('parent_id' => $settings->folder_id));
 		$folder_opts[0] = 'Create a new folder';
 		foreach($query->result() as $row)
