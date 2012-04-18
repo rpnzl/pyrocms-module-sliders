@@ -86,7 +86,7 @@ class Module_Sliders extends Module {
 		/**
 		 * Default file folder
 		 */
-		$query = $this->db->get_where('file_folders', array('slug' => 'sliders-module'));
+		$query = $this->db->get_where('file_folders', array('name' => 'Sliders Module'));
 		$folder_exists = $query->row();
 		if($folder_exists)
 		{
@@ -95,7 +95,7 @@ class Module_Sliders extends Module {
 		else
 		{
 			$this->db->insert('file_folders', $default_folder);
-			$folder_id = $this->db->last_insert_id();
+			$folder_id = $this->db->insert_id();
 		}
 
 		
