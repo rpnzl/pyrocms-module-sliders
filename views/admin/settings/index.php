@@ -6,32 +6,21 @@
 	<section class="item">
 		<?php echo form_open(uri_string(), 'class="crud"'); ?>
 			<?php echo form_hidden('id', $settings->id); ?>
-			<fieldset>
-				<ul>
-					<li class="<?php echo alternator('even', ''); ?>">
-						<label for="folder_id"><?php echo lang('sliders.folder_id_label');?></label>
-						<?php echo form_dropdown('folder_id', $folders, $settings->folder_id); ?>
-					</li>
+			<div class="form_inputs">
+				<fieldset>
+					<ul>
+						<li class="<?php echo alternator('even', ''); ?>">
+							<label for="folder_id"><?php echo lang('sliders.folder_id_label');?></label>
+							<?php echo form_dropdown('folder_id', $folders, $settings->folder_id); ?>
+						</li>
 
-					<li class="<?php echo alternator('even', ''); ?>">
-						<label for="jquery"><?php echo lang('sliders.jquery_label');?></label>
-						<div class="input">
-							<?php if($settings->jquery == 1): ?>
-								<?php echo form_radio('jquery', 1, true); ?>&nbsp;Yes
-							<?php else: ?>
-								<?php echo form_radio('jquery', 1, false); ?>&nbsp;Yes
-							<?php endif; ?>
-						</div>
-						<div class="input">
-							<?php if($settings->jquery == 0): ?>
-								<?php echo form_radio('jquery', 0, true); ?>&nbsp;No
-							<?php else: ?>
-								<?php echo form_radio('jquery', 0, false); ?>&nbsp;No
-							<?php endif; ?>
-						</div>
-					</li>
-				</ul>
-			</fieldset>
+						<li class="<?php echo alternator('even', ''); ?>">
+							<label for="jquery"><?php echo lang('sliders.jquery_label');?></label>
+							<?php echo form_dropdown('jquery', array(1 => 'Yes', 2 => 'No'), $settings->jquery); ?>
+						</li>
+					</ul>
+				</fieldset>
+			</div>
 
 			<div class="buttons align-right padding-top">
 				<?php $this->load->view('admin/partials/buttons', array('buttons' => array('save', 'save_exit', 'cancel') )); ?>

@@ -14,16 +14,16 @@
 				<li><a href="#slider-content"><span><?php echo lang('sliders.content_label');?></span></a></li>
 			</ul>
 			<!-- Content tab -->
-			<div id="slider-content">
+			<div id="slider-content" class="form_inputs">
 				<fieldset>
 					<ul>
 						<li class="<?php echo alternator('even', ''); ?>">
 							<label for="title"><?php echo lang('sliders.title_label');?> <span>*</span></label>
-							<div class="input"><?php echo form_input('title', $slider->title, 'id="title" maxlength="60"'); ?></div>
+							<?php echo form_input('title', $slider->title, 'id="title" maxlength="60"'); ?>
 						</li>
 
 						<li class="<?php echo alternator('even', ''); ?>">
-							<label for="folder_id">Select an existing folder, or create a new one</label>
+							<label for="folder_id">Slider Assets</label>
 							<?php echo form_dropdown('folder_id', $folders, $slider->folder_id); ?>
 						</li>
 					</ul>
