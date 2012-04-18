@@ -26,6 +26,11 @@ class Admin_settings extends Admin_Controller {
 			'label' => 'jQuery',
 			'rules' => 'trim|required|numeric'
 		),
+		array(
+			'field' => 'folder_id',
+			'label' => 'Folder',
+			'rules' => 'trim|required|numeric'
+		),
 	);
 
 
@@ -41,7 +46,11 @@ class Admin_settings extends Admin_Controller {
 		parent::__construct();
 
 		// Load the required classes
-		$this->load->model(array('slider_settings_m', 'slider_m'));
+		$this->load->model(array(
+			'slider_settings_m',
+			'slider_m',
+			'files/file_folders_m',
+		));
 		$this->lang->load('sliders');
 
 		// Load the validation library
@@ -68,6 +77,7 @@ class Admin_settings extends Admin_Controller {
 			$id = $this->input->post('id');
 			$props = array(
 				'jquery' => $this->input->post('jquery'),
+				'folder_id' => $this->input->post('folder_id'),
 			);
 
 			if ($id = $this->slider_settings_m->update($id, $props))
@@ -79,7 +89,9 @@ class Admin_settings extends Admin_Controller {
 				$this->session->set_flashdata('error', 'Settings updated failed.');
 			}
 
-			redirect('admin/sliders/settings');
+			$this->input->post('btnAction') == 'save_exit' ?
+				redirect('admin/sliders') :
+				redirect('admin/sliders/settings');
 		}
 
 		// Loop through each validation rule
@@ -88,11 +100,17 @@ class Admin_settings extends Admin_Controller {
 			$slider_settings_m->{$rule['field']} = set_value($rule['field']);
 		}
 
-		$settings = $this->slider_settings_m->get_all();
-		$settings = $settings[0];
+		$folders 	= $this->file_folders_m->get_all();
+		foreach($folders as $folder)
+		{
+			$folder_opts[$folder->id] = $folder->name;
+		}
+		$settings 	= $this->slider_settings_m->get_all();
+		$settings 	= $settings[0];
 
 		$this->template
 			->set('settings', $settings)
+			->set('folders', $folder_opts)
 			->build('admin/settings/index');
 	}
 }

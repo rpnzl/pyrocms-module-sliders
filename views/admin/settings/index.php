@@ -9,6 +9,11 @@
 			<fieldset>
 				<ul>
 					<li class="<?php echo alternator('even', ''); ?>">
+						<label for="folder_id"><?php echo lang('sliders.folder_id_label');?></label>
+						<?php echo form_dropdown('folder_id', $folders, $settings->folder_id); ?>
+					</li>
+
+					<li class="<?php echo alternator('even', ''); ?>">
 						<label for="jquery"><?php echo lang('sliders.jquery_label');?></label>
 						<div class="input">
 							<?php if($settings->jquery == 1): ?>

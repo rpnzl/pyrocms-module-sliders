@@ -26,6 +26,11 @@ class Admin extends Admin_Controller {
 			'label' => 'Title',
 			'rules' => 'trim|htmlspecialchars|required|max_length[100]'
 		),
+		array(
+			'field' => 'folder_id',
+			'label' => 'Folder',
+			'rules' => 'trim|required|numeric'
+		),
 	);
 
 
@@ -41,7 +46,12 @@ class Admin extends Admin_Controller {
 		parent::__construct();
 
 		// Load the required classes
-		$this->load->model(array('slider_settings_m', 'slider_m'));
+		$this->load->model(array(
+			'slider_settings_m',
+			'slider_m',
+			'files/file_folders_m',
+		));
+
 		$this->lang->load('sliders');
 
 		// Load the validation library
@@ -77,6 +87,7 @@ class Admin extends Admin_Controller {
 			// Get posted vars
 			$props = array(
 				'title' => $this->input->post('title'),
+				'folder_id' => $this->input->post('folder_id'),
 				'created_on' => now(),
 				'updated_on' => now(),
 			);
@@ -121,6 +132,7 @@ class Admin extends Admin_Controller {
 			// Get posted vars
 			$props = array(
 				'title' => $this->input->post('title'),
+				'folder_id' => $this->input->post('folder_id'),
 				'updated_on' => now(),
 			);
 

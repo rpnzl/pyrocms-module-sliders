@@ -11,6 +11,7 @@ $lang['sliders.detail_label']							= 'Details';
 
 // labels
 $lang['sliders.jquery_label']							= 'Is jQuery already included on your site?';
+$lang['sliders.folder_id_label']							= 'Select the parent slider asset folder.';
 $lang['sliders.page_label']							= 'Page';
 $lang['sliders.add_page_chunk']						= 'Add Page Chunk';
 $lang['sliders.page_chunk']							= 'Page Chunk';
