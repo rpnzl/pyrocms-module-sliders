@@ -112,7 +112,18 @@ class Admin extends Admin_Controller {
 			$slider_m->{$rule['field']} = set_value($rule['field']);
 		}
 
-		$this->template->build('admin/form');
+		$settings 	= $this->slider_settings_m->get_all();
+		$settings 	= $settings[0];
+		$query = $this->db->get_where('file_folders', array('parent_id' => $settings->folder_id));
+		$folder_opts[0] = 'Create a new folder';
+		foreach($query->result() as $row)
+		{
+			$folder_opts[$row->id] = $row->name;
+		}
+
+		$this->template
+			->set('folders', $folder_opts)
+			->build('admin/form');
 	}
 
 
@@ -132,7 +143,7 @@ class Admin extends Admin_Controller {
 			// Get posted vars
 			$props = array(
 				'title' => $this->input->post('title'),
-				'folder_id' => $this->input->post('folder_id'),
+				'folder_id' => $this->input->post('folder_ids'),
 				'updated_on' => now(),
 			);
 
@@ -156,7 +167,17 @@ class Admin extends Admin_Controller {
 			$slider_m->{$rule['field']} = set_value($rule['field']);
 		}
 
+		$settings 	= $this->slider_settings_m->get_all();
+		$settings 	= $settings[0];
+		$query = $this->db->get_where('file_folders', array('parent_id' => $settings->folder_id));
+		$folder_opts[0] = 'Create a new folder';
+		foreach($query->result() as $row)
+		{
+			$folder_opts[$row->id] = $row->name;
+		}
+
 		$this->template
+			->set('folders', $folder_opts)
 			->set('slider', $slider)
 			->build('admin/form');
 	}

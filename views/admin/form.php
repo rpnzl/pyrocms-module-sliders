@@ -23,6 +23,11 @@
 						<label for="title"><?php echo lang('sliders.title_label');?> <span>*</span></label>
 						<div class="input"><?php echo form_input('title', $slider->title, 'id="title" maxlength="60"'); ?></div>
 					</li>
+
+					<li class="<?php echo alternator('even', ''); ?>">
+						<label for="folder_id">Select an existing folder, or create a new one</label>
+						<?php echo form_dropdown('folder_id', $folders, $slider->folder_id); ?>
+					</li>
 				</ul>
 			</fieldset>
 		</div>

@@ -100,13 +100,13 @@ class Admin_settings extends Admin_Controller {
 			$slider_settings_m->{$rule['field']} = set_value($rule['field']);
 		}
 
+		$settings 	= $this->slider_settings_m->get_all();
+		$settings 	= $settings[0];
 		$folders 	= $this->file_folders_m->get_all();
 		foreach($folders as $folder)
 		{
 			$folder_opts[$folder->id] = $folder->name;
 		}
-		$settings 	= $this->slider_settings_m->get_all();
-		$settings 	= $settings[0];
 
 		$this->template
 			->set('settings', $settings)
