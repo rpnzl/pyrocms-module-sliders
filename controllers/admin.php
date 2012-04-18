@@ -55,7 +55,10 @@ class Admin extends Admin_Controller {
 		$this->lang->load('sliders');
 
 		// Load the validation library
-		$this->load->library('form_validation');
+		$this->load->library(array(
+			'form_validation',
+			'files/files',
+		));
 
 		// Set the validation rules
 		$this->form_validation->set_rules($this->_validation_rules);
@@ -91,22 +94,10 @@ class Admin extends Admin_Controller {
 			// If user wants to create a new folder
 			if($this->input->post('folder_id') == 0)
 			{
-				// Create new folder slug
-				$folder_slug = preg_replace('/\W/i', '-', strtolower($this->input->post('title')));
-
-				// Set new folder props
-				$folder_props = array(
-					'id'		=> null,
-					'parent_id'	=> $settings->folder_id,
-					'slug'		=> $folder_slug,
-					'name'		=> $this->input->post('title'),
-					'location'	=> 'local',
-				);
-
 				// Insert the record
-				if( ! $folder_id = $this->file_folders_m->insert($folder_props))
+				if(Files::create_folder($settings->folder_id, $this->input->post('title')))
 				{
-					return false;
+					$folder_id = $this->db->insert_id();
 				}
 			}
 			else
@@ -114,7 +105,6 @@ class Admin extends Admin_Controller {
 				// Otherwise, just use the posted folder id
 				$folder_id = $this->input->post('folder_id');
 			}
-
 
 			// Set slider props
 			$props = array(
@@ -180,22 +170,10 @@ class Admin extends Admin_Controller {
 			// If user wants to create a new folder
 			if($this->input->post('folder_id') == 0)
 			{
-				// Create new folder slug
-				$folder_slug = preg_replace('/\W/i', '-', strtolower($this->input->post('title')));
-
-				// Set new folder props
-				$folder_props = array(
-					'id'		=> null,
-					'parent_id'	=> $settings->folder_id,
-					'slug'		=> $folder_slug,
-					'name'		=> $this->input->post('title'),
-					'location'	=> 'local',
-				);
-
 				// Insert the record
-				if( ! $folder_id = $this->file_folders_m->insert($folder_props))
+				if(Files::create_folder($settings->folder_id, $this->input->post('title')))
 				{
-					return false;
+					$folder_id = $this->db->insert_id();
 				}
 			}
 			else
@@ -203,7 +181,6 @@ class Admin extends Admin_Controller {
 				// Otherwise, just use the posted folder id
 				$folder_id = $this->input->post('folder_id');
 			}
-
 
 			// Set slider props
 			$props = array(
