@@ -37,10 +37,23 @@ class Widget_Slider extends Widgets
 	 */
 	public function form($options)
 	{
-		!empty($options['slider_id']) 		OR $options['slider_id'] = 0;
+		$this->load->model(array(
+			'sliders/slider_settings_m',
+			'sliders/slider_m',
+		));
+
+		$sliders = $this->slider_m->get_all();
+		$slider_array = array();
+		foreach($sliders as $slider)
+		{
+			$slider_array[$slider->id] = $slider->title;
+		}
+
+		!empty($options['slider_id'])	OR $options['slider_id'] = null;
 
 		return array(
-			'options' => $options,
+			'options'	=> $options,
+			'sliders'	=> $slider_array,
 		);
 	}
 
@@ -49,8 +62,8 @@ class Widget_Slider extends Widgets
 	{
 		$this->load->library(array('files/files'));
 		$this->load->model(array(
-			'slider_settings_m',
-			'slider_m',
+			'sliders/slider_settings_m',
+			'sliders/slider_m',
 			'files/file_folders_m',
 		));
 
