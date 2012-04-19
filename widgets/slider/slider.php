@@ -64,15 +64,24 @@ class Widget_Slider extends Widgets
 		$this->load->model(array(
 			'sliders/slider_settings_m',
 			'sliders/slider_m',
-			'files/file_folders_m',
+			'files/file_m',
 		));
 
-		$sliders = $this->slider_m->get($options['slider_id']);
+		$slider = $this->slider_m->get($options['slider_id']);
+		$query = $this->db->get_where('files', array('folder_id' => $slider->folder_id));
+		$images = $query->result();
+
+
+		Asset::add_path('sliders', 'addons/shared_addons/modules/sliders/');
+		$this->template->append_js('sliders::jquery.nivo.slider.pack.js');
+		$this->template->append_css('sliders::nivo-slider.css');
+
 
 		// returns the variables to be used within the widget's view
 		return array(
 			'options'	=> $options,
-			'sliders'	=> $sliders,
+			'slider'	=> $slider,
+			'images'	=> $images,
 		);
 	}
 }
