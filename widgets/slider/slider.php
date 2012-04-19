@@ -2,10 +2,10 @@
 
 /**
  * @package 		PyroCMS
- * @subpackage 		Bands In Town Widget
+ * @subpackage 		Slider Widget
  * @author			Michael Giuliana
  *
- * Display events pulled from Bands In Town API v2.0
+ * Display a slider configured in the Sliders Module
  *
  * Usage : on a CMS page add {widget_area('name_of_area')}
  * where 'name_of_area' is the name of the widget area you created in the admin control panel
@@ -14,20 +14,20 @@
 class Widget_Slider extends Widgets
 {
 	public $title		= array(
-		'en' => 'Bands In Town',
+		'en' => 'Slider',
 	);
 	public $description	= array(
-		'en' => 'Display events pulled from Bands In Town API v2.0',
+		'en' => 'Display a Nivo Slider on your website.',
 	);
 
 	public $author		= 'Michael Giuliana';
 	public $website		= 'http://rpnzl.com';
-	public $version		= '1.0.2';
+	public $version		= '1.0';
 
 	public $fields = array(
 		array(
-			'field' => 'app_id',
-			'label' => 'App ID',
+			'field' => 'slider_id',
+			'label' => 'Slider',
 		),
 		array(
 			'field' => 'limit',
