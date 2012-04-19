@@ -296,26 +296,4 @@ class Admin extends Admin_Controller {
 		}
 		redirect('admin/sliders');
 	}
-
-
-
-
-	/*
-	public function delete($id = 0)
-	{
-		$slider = $this->slider_m->get($id);
-		$slider OR redirect('admin/sliders');
-
-		if ($success = $this->slider_m->delete($id))
-		{
-			$this->session->set_flashdata('success', 'Slider deleted.');
-		}
-		else
-		{
-			$this->session->set_flashdata('error', 'Slider was not deleted.');
-		}
-
-		redirect('admin/sliders');
-	}
-	*/
 }
