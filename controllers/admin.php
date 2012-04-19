@@ -261,20 +261,38 @@ class Admin extends Admin_Controller {
 		// Go through the array of slugs to delete
 		if ( ! empty($ids))
 		{
+			$deleted_ids = array();
 			foreach ($ids as $id)
 			{
 				if ($success = $this->slider_m->delete($id))
 				{
-					$this->session->set_flashdata('success', 'Sliders deleted.');
+					$deleted_ids[] = $id;
 				}
 				else
 				{
-					$this->session->set_flashdata('error', 'Slider was not deleted.');
+					$this->session->set_flashdata('error', 'There was an error.');
 				}
 			}
-			
-			// Fire an event. We've deleted one or more blog posts.
-			Events::trigger('blog_article_deleted', $deleted_ids);
+		}
+
+		// Some sliders have been deleted
+		if ( ! empty($deleted_ids))
+		{
+			// Only deleting one slider
+			if (count($deleted_ids) == 1)
+			{
+				$this->session->set_flashdata('success', 'Slider was deleted.');
+			}
+			// Deleting multiple sliders
+			else
+			{
+				$this->session->set_flashdata('success', 'Sliders have been deleted.');
+			}
+		}
+		// For some reason, none of them were deleted
+		else
+		{
+			$this->session->set_flashdata('notice', 'Error deleting sliders.');
 		}
 		redirect('admin/sliders');
 	}
