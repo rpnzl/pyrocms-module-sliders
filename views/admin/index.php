@@ -25,7 +25,6 @@
 						<td><?php echo $slider->title; ?></td>
 						<td class="collapse">TO DO</td>
 						<td>
-							<?php echo anchor('admin/sliders/preview/' . $slider->id, lang('global:preview'), 'rel="modal-large" class="iframe btn green" target="_blank"'); ?>
 							<?php echo anchor('admin/sliders/edit/' . $slider->id, lang('global:edit'), 'class="btn orange edit"'); ?>
 							<?php echo anchor('admin/sliders/delete/' . $slider->id, lang('global:delete'), array('class'=>'confirm btn red delete')); ?>
 						</td>
