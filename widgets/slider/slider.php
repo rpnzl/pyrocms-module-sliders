@@ -74,7 +74,12 @@ class Widget_Slider extends Widgets
 
 		Asset::add_path('sliders', 'addons/shared_addons/modules/sliders/');
 		$this->template->append_js('sliders::jquery.nivo.slider.pack.js');
-		$this->template->append_css('sliders::nivo-slider.css');
+		$this->template->append_css(array(
+			'sliders::nivo-slider.css',
+			'sliders::default.css',
+			'sliders::orman.css',
+			'sliders::pascal.css',
+		));
 
 
 		// returns the variables to be used within the widget's view
