@@ -8,6 +8,7 @@
 <script type="text/javascript">
 	// Set these as widget options
 	// also set image height and width as widget settings
+	// also set theme choice as a setting?
 
 	$('#slider_<?php echo $slider->id; ?>').nivoSlider({
 		effect: 'fade',
