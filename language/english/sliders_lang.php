@@ -69,7 +69,10 @@ $lang['sliders_parent_not_exist_error']				= 'The parent page you have selected 
 $lang['sliders_chunk_slug_length']					= 'Page Chunk slugs may be no more than 30 characters in length.';
 $lang['sliders_root_folder']                = 'the top level';
 
-$lang['sliders.tree_explanation_title']	        = 'Explanation';
-$lang['sliders.tree_explanation']						= 'The list on the left represents sliders on your website. Click the page item to show its children. You may drag sliders to order them; drag horizontally to make it a child. When you click the page text you will see all sorts of handy information in this box.';
+$lang['sliders.index_explanation_title']		= 'Explanation';
+$lang['sliders.index_explanation']				= 'This is where you can create, edit, and delete your custom sliders.';
 
-$lang['sliders.rss_explanation']						= 'Enabling RSS for this page will give users a chance to subscribe to an RSS feed which shows each immediate page child as a new entry.';
+$lang['sliders.form_explanation_title']			= 'Explanation';
+$lang['sliders.form_explanation']				= 'The TITLE field allows you to choose a custom name for your slider. The SLIDER ASSETS field maps to a folder within the main sliders assets folder which is managed by the core Files module. When you installed this module, we created the "Sliders Module" folder in the Files module, but feel free to change this from the Sliders module "Settings" section above.';
+
+

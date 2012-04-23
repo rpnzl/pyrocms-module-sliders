@@ -41,12 +41,12 @@
 
 <div class="one_half last scroll-follow">	
 	<section class="title">
-		<h4><?php echo lang('sliders.tree_explanation_title'); ?></h4>
+		<h4><?php echo lang('sliders.index_explanation_title'); ?></h4>
 	</section>
 	
 	<section class="item">
 		<p>
-			<?php echo lang('sliders.tree_explanation'); ?>
+			<?php echo lang('sliders.index_explanation'); ?>
 		</p>
 	</section>
 </div>
