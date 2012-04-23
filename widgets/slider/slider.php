@@ -60,6 +60,7 @@ class Widget_Slider extends Widgets
 
 	public function run($options)
 	{
+		// Load templates and libraries
 		$this->load->library(array('files/files'));
 		$this->load->model(array(
 			'sliders/slider_settings_m',
@@ -67,13 +68,37 @@ class Widget_Slider extends Widgets
 			'files/file_m',
 		));
 
+
+		// Get settings
+		$settings = $this->slider_settings_m->get_all();
+		$settings = $settings[0];
+
+
+		// Get slider and images
 		$slider = $this->slider_m->get($options['slider_id']);
 		$query = $this->db->get_where('files', array('folder_id' => $slider->folder_id));
 		$images = $query->result();
 
 
+		// Add path to module assets
 		Asset::add_path('sliders', 'addons/shared_addons/modules/sliders/');
-		$this->template->append_js('sliders::jquery.nivo.slider.pack.js');
+
+
+		// Include jQuery if needed
+		if($settings->jquery == 1)
+		{
+			$this->template->append_js(array(
+				'sliders::jquery.min.js',
+				'sliders::jquery.nivo.slider.pack.js',
+			));
+		}
+		else
+		{
+			$this->template->append_js('sliders::jquery.nivo.slider.pack.js');
+		}
+
+
+		// Append themes
 		$this->template->append_css(array(
 			'sliders::nivo-slider.css',
 			'sliders::default.css',
