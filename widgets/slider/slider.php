@@ -49,7 +49,24 @@ class Widget_Slider extends Widgets
 			$slider_array[$slider->id] = $slider->title;
 		}
 
-		!empty($options['slider_id'])	OR $options['slider_id'] = null;
+		!empty($options['slider_id'])				OR $options['slider_id'] = null;
+		!empty($options['effect'])					OR $options['effect'] = 'fade';
+		!empty($options['slices'])					OR $options['slices'] = 15;
+		!empty($options['boxCols'])					OR $options['boxCols'] = 8;
+		!empty($options['boxRows'])					OR $options['boxRows'] = 4;
+		!empty($options['animSpeed'])				OR $options['animSpeed'] = 500;
+		!empty($options['pauseTime'])				OR $options['pauseTime'] = 3000;
+		!empty($options['startSlide'])				OR $options['startSlide'] = 0;
+		!empty($options['directionNav'])			OR $options['directionNav'] = true;
+		!empty($options['directionNavHide'])		OR $options['directionNavHide'] = true;
+		!empty($options['controlNav'])				OR $options['controlNav'] = true;
+		!empty($options['controlNavThumbs'])		OR $options['controlNavThumbs'] = false;
+		!empty($options['controlNavThumbsFromRel'])	OR $options['controlNavThumbsFromRel'] = false;
+		!empty($options['controlNavThumbsSearch'])	OR $options['controlNavThumbsSearch'] = null;
+		!empty($options['controlNavThumbsReplace'])	OR $options['controlNavThumbsReplace'] = null;
+		!empty($options['keyboardNav'])				OR $options['keyboardNav'] = true;
+		!empty($options['pauseOnHover'])			OR $options['pauseOnHover'] = true;
+		!empty($options['manualAdvance'])			OR $options['manualAdvance'] = false;
 
 		return array(
 			'options'	=> $options,
@@ -76,7 +93,7 @@ class Widget_Slider extends Widgets
 
 		// Get slider and images
 		$slider = $this->slider_m->get($options['slider_id']);
-		$query = $this->db->get_where('files', array('folder_id' => $slider->folder_id));
+		$query = $this->db->order_by('sort', 'asc')->get_where('files', array('folder_id' => $slider->folder_id));
 		$images = $query->result();
 
 

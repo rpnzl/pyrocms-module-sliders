@@ -11,8 +11,8 @@
 	// also set theme choice as a setting?
 
 	$('#slider_<?php echo $slider->id; ?>').nivoSlider({
-		effect: 'fade',
-		slices: 15,
+		<?php echo ($options['effect']) ? 'effect: "'.$options['effect'].'",' : null; ?>
+		<?php echo ($options['slices']) ? 'slices: '.$options['slices'].',' : null; ?>
 		boxCols: 8,
 		boxRows: 4,
 		animSpeed: 500,
