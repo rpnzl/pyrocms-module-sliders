@@ -13,8 +13,8 @@
 /* The Nivo Slider styles */
 .nivoSlider {
 	position:relative;
-	width: 625px; /* image height */
-	height: 338px; /* image width */
+	/* width: 625px; image height */
+	/* height: 338px; image width */
 }
 .nivoSlider img {
 	position:absolute;

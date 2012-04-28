@@ -96,10 +96,8 @@ class Widget_Slider extends Widgets
 		$query = $this->db->order_by('sort', 'asc')->get_where('files', array('folder_id' => $slider->folder_id));
 		$images = $query->result();
 
-
 		// Add path to module assets
 		Asset::add_path('sliders', 'addons/shared_addons/modules/sliders/');
-
 
 		// Include jQuery if needed
 		if($settings->jquery == 1)
@@ -115,14 +113,13 @@ class Widget_Slider extends Widgets
 		}
 
 
-		// Append themes
+		// Append slider themes
 		$this->template->append_css(array(
 			'sliders::nivo-slider.css',
 			'sliders::default.css',
 			'sliders::orman.css',
 			'sliders::pascal.css',
 		));
-
 
 		// returns the variables to be used within the widget's view
 		return array(
