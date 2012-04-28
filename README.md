@@ -5,6 +5,11 @@
 * Website: [http://rpnzl.com/](http://rpnzl.com/)
 * Version: 1.0
 
+## To Do
+* Widget display file path issue.
+* Widget form structure.
+* Widget detect jquery.
+
 ## Description
 
 This module will allow you to easily add Nivo Sliders to your current PyroCMS website. This module utilizes the core Files module to manage images. The Slider widget includes most of the Nivo Slider's javascript options, and we'll hopefully see it extended in the future!
