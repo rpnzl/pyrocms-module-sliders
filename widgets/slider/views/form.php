@@ -13,8 +13,22 @@
 			<?php echo form_dropdown(
 				'effect',
 				array(
+					'sliceDown' => 'Slice Down',
+					'sliceDownLeft' => 'Slice Down Left',
+					'sliceUp' => 'Slice Up',
+					'sliceUpLeft' => 'Slice Up Left',
+					'sliceUpDown' => 'Slice Up Down',
+					'sliceUpDownLeft' => 'Slice Up Down Left',
+					'fold' => 'Fold',
 					'fade' => 'Fade',
 					'random' => 'Random',
+					'slideInRight' => 'Slide In Right',
+					'slideInLeft' => 'Slide In Left',
+					'boxRandom' => 'Box Random',
+					'boxRain' => 'Box Rain',
+					'boxRainReverse' => 'Box Rain Reverse',
+					'boxRainGrow' => 'Box Rain Grow',
+					'boxRainGrowReverse' => 'Box Rain Grow Reverse',
 				),
 				$options['effect']
 			); ?>
