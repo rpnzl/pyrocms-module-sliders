@@ -20,6 +20,7 @@
 	position:absolute;
 	top:0px;
 	left:0px;
+	max-width: 100%;
 }
 /* If an image is wrapped in a link */
 .nivoSlider a.nivo-imageLink {

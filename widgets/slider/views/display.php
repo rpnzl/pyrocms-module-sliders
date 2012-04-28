@@ -7,7 +7,7 @@
 <div class="slider-wrapper theme-default">
 	<div id="slider_<?php echo $slider->id; ?>" class="nivoSlider">
 		<?php foreach($images as $image): ?>
-		<img src="<?php echo $image->path; ?>" title="<?php echo $image->name; ?>" alt="<?php echo $image->name; ?>" />
+		<img src="<?php echo $image->path; ?>" alt="" title="<?php echo $image->name; ?>" />
 		<?php endforeach; ?>
 	</div>
 </div>
