@@ -34,6 +34,10 @@ class Widget_Slider extends Widgets
 			'label' => 'Effect',
 		),
 		array(
+			'field' => 'captions',
+			'label' => 'Captions',
+		),
+		array(
 			'field' => 'animSpeed',
 			'label' => 'Animation Speed',
 		),
@@ -95,6 +99,7 @@ class Widget_Slider extends Widgets
 		}
 
 		!empty($options['slider_id'])				OR $options['slider_id'] = null;
+		!empty($options['captions'])				OR $options['captions'] = 'false';
 		!empty($options['effect'])					OR $options['effect'] = 'fade';
 		!empty($options['animSpeed'])				OR $options['animSpeed'] = 500;
 		!empty($options['pauseTime'])				OR $options['pauseTime'] = 3000;

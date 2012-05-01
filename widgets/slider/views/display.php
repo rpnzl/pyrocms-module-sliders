@@ -8,7 +8,7 @@
 <div class="slider-wrapper theme-default">
 	<div id="slider_<?php echo $slider->id; ?>" class="nivoSlider">
 		<?php foreach($images as $image): ?>
-		<img src="<?php echo $image->path; ?>" alt="" title="<?php echo $image->name; ?>" />
+		<img src="<?php echo $image->path; ?>" alt="" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
 		<?php endforeach; ?>
 	</div>
 </div>
