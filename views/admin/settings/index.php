@@ -32,13 +32,13 @@
 
 <div class="one_half last scroll-follow">	
 	<section class="title">
-		<h4><?php echo lang('sliders.tree_explanation_title'); ?></h4>
+		<h4><?php echo lang('sliders.settings_explanation_title'); ?></h4>
 	</section>
 	
 	<section class="item">
 		<div id="page-details">
 		<p>
-			<?php echo lang('sliders.tree_explanation'); ?>
+			<?php echo lang('sliders.settings_explanation'); ?>
 		</p>
 		</div>
 	</section>
