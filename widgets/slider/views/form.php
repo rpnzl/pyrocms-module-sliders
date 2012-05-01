@@ -47,32 +47,32 @@
 
 		<li class="odd">
 			<label for="directionNav">Direction Nav</label>
-			<?php echo form_dropdown('directionNav', array('true' => 'On', 'false' => 'Off',), $options['directionNav']); ?>
+			<?php echo form_dropdown('directionNav', array(true => 'On', false => 'Off',), $options['directionNav']); ?>
 		</li>
 
 		<li>
 			<label for="directionNavHide">Direction Nav Hide</label>
-			<?php echo form_dropdown('directionNavHide', array('true' => 'On', 'false' => 'Off',), $options['directionNav']); ?>
+			<?php echo form_dropdown('directionNavHide', array(true => 'On', false => 'Off',), $options['directionNavHide']); ?>
 		</li>
 
 		<li class="odd">
 			<label for="controlNav">Control Nav</label>
-			<?php echo form_dropdown('controlNav', array('true' => 'On', 'false' => 'Off',), $options['controlNav']); ?>
+			<?php echo form_dropdown('controlNav', array(true => 'On', false => 'Off',), $options['controlNav']); ?>
 		</li>
 
 		<li>
 			<label for="keyboardNav">Keyboard Nav</label>
-			<?php echo form_dropdown('keyboardNav', array('true' => 'On', 'false' => 'Off',), $options['directionNav']); ?>
+			<?php echo form_dropdown('keyboardNav', array(true => 'On', false => 'Off',), $options['keyboardNav']); ?>
 		</li>
 
 		<li class="odd">
 			<label for="pauseOnHover">Pause On Hover</label>
-			<?php echo form_dropdown('pauseOnHover', array('true' => 'On', 'false' => 'Off',), $options['pauseOnHover']); ?>
+			<?php echo form_dropdown('pauseOnHover', array(true => 'On', false => 'Off',), $options['pauseOnHover']); ?>
 		</li>
 
 		<li>
 			<label for="manualAdvance">Manual Advance</label>
-			<?php echo form_dropdown('manualAdvance', array('true' => 'On', 'false' => 'Off',), $options['manualAdvance']); ?>
+			<?php echo form_dropdown('manualAdvance', array(true => 'On', false => 'Off',), $options['manualAdvance']); ?>
 		</li>
 	</fieldset>
 
