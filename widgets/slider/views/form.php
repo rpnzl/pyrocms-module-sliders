@@ -6,7 +6,7 @@
 		<legend>General Settings</legend>
 		<li class="odd">
 			<label for="slider_id">Choose Slider</label>
-			<?php echo form_dropdown('slider_id', $sliders, $options['slider_id']); ?>
+			<?php echo form_dropdown('slider_id', $select_slider, $options['slider_id']); ?>
 		</li>
 
 		<li>

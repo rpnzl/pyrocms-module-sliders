@@ -80,9 +80,6 @@ class Widget_Slider extends Widgets
 	);
 
 
-	/**
-	 * Set option defaults
-	 */
 	public function form($options)
 	{
 		$this->load->model(array(
@@ -91,10 +88,10 @@ class Widget_Slider extends Widgets
 		));
 
 		$sliders = $this->slider_m->get_all();
-		$slider_array = array();
+		$select_slider = array();
 		foreach($sliders as $slider)
 		{
-			$slider_array[$slider->id] = $slider->title;
+			$select_slider[$slider->id] = $slider->title;
 		}
 
 		!empty($options['slider_id'])				OR $options['slider_id'] = null;
@@ -113,7 +110,7 @@ class Widget_Slider extends Widgets
 
 		return array(
 			'options'	=> $options,
-			'sliders'	=> $slider_array,
+			'select_slider'	=> $select_slider,
 		);
 	}
 

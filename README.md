@@ -19,4 +19,4 @@ This module will allow you to easily add Nivo Sliders to your current PyroCMS we
 Rename the **pyrocms-module-sliders** folder -> **sliders** and drop it into your **addons/shared_addons/modules** directory, then install via the Addons section in the control panel!
 
 ### Important
-The slider widget currently utilize a path that points to the **addons/shared_addons/modules** directory. If you'd like to use the **addons/default/modules** directory instead, you'll have to modify the included slider widget's run() method.*
+The slider widget currently utilizes a path that points to the **addons/shared_addons/modules** directory. If you'd like to use the **addons/default/modules** directory instead, you'll have to modify the included slider widget's run() method.
