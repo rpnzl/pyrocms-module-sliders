@@ -1,6 +1,7 @@
 <style>
 .nivoSlider {
 	width: <?php echo $images[0]->width; ?>px;
+	max-width: 100%;
 	height: <?php echo $images[0]->height; ?>px;
 }
 </style>
