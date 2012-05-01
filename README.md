@@ -7,8 +7,7 @@
 
 ## To Do
 * Widget display file path issue.
-* Widget form structure.
-* Widget detect jquery.
+* Sliders language file.
 
 ## Description
 
