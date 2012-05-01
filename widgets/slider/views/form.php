@@ -78,6 +78,7 @@
 
 
 	<fieldset>
+		<legend>Effect Settings</legend>
 		<li class="odd">
 			<label for="slices">Slices</label>
 			<?php echo form_input('slices', $options['slices']); ?>
@@ -88,7 +89,7 @@
 			<?php echo form_input('boxCols', $options['boxCols']); ?>
 		</li>
 
-		<li>
+		<li class="odd">
 			<label for="boxRows">Box Rows</label>
 			<?php echo form_input('boxRows', $options['boxRows']); ?>
 		</li>

@@ -29,6 +29,54 @@ class Widget_Slider extends Widgets
 			'field' => 'slider_id',
 			'label' => 'Slider',
 		),
+		array(
+			'field' => 'effect',
+			'label' => 'Effect',
+		),
+		array(
+			'field' => 'animSpeed',
+			'label' => 'Animation Speed',
+		),
+		array(
+			'field' => 'pauseTime',
+			'label' => 'Pause Time',
+		),
+		array(
+			'field' => 'directionNav',
+			'label' => 'Direction Nav',
+		),
+		array(
+			'field' => 'directionNavHide',
+			'label' => 'Direction Nav Hide',
+		),
+		array(
+			'field' => 'controlNav',
+			'label' => 'Control Nav',
+		),
+		array(
+			'field' => 'keyboardNav',
+			'label' => 'Keyboard Nav',
+		),
+		array(
+			'field' => 'pauseOnHover',
+			'label' => 'Pause On Hover',
+		),
+		array(
+			'field' => 'manualAdvance',
+			'label' => 'Manual Advance',
+		),
+		array(
+			'field' => 'slices',
+			'label' => 'Slices',
+		),
+		array(
+			'field' => 'boxCols',
+			'label' => 'Box Columns',
+		),
+		array(
+			'field' => 'boxRows',
+			'label' => 'Box Rows',
+		),
 	);
 
 
@@ -51,22 +99,17 @@ class Widget_Slider extends Widgets
 
 		!empty($options['slider_id'])				OR $options['slider_id'] = null;
 		!empty($options['effect'])					OR $options['effect'] = 'fade';
-		!empty($options['slices'])					OR $options['slices'] = 15;
-		!empty($options['boxCols'])					OR $options['boxCols'] = 8;
-		!empty($options['boxRows'])					OR $options['boxRows'] = 4;
 		!empty($options['animSpeed'])				OR $options['animSpeed'] = 500;
 		!empty($options['pauseTime'])				OR $options['pauseTime'] = 3000;
-		!empty($options['startSlide'])				OR $options['startSlide'] = 0;
 		!empty($options['directionNav'])			OR $options['directionNav'] = true;
 		!empty($options['directionNavHide'])		OR $options['directionNavHide'] = true;
 		!empty($options['controlNav'])				OR $options['controlNav'] = true;
-		!empty($options['controlNavThumbs'])		OR $options['controlNavThumbs'] = false;
-		!empty($options['controlNavThumbsFromRel'])	OR $options['controlNavThumbsFromRel'] = false;
-		!empty($options['controlNavThumbsSearch'])	OR $options['controlNavThumbsSearch'] = null;
-		!empty($options['controlNavThumbsReplace'])	OR $options['controlNavThumbsReplace'] = null;
 		!empty($options['keyboardNav'])				OR $options['keyboardNav'] = true;
 		!empty($options['pauseOnHover'])			OR $options['pauseOnHover'] = true;
 		!empty($options['manualAdvance'])			OR $options['manualAdvance'] = false;
+		!empty($options['slices'])					OR $options['slices'] = 15;
+		!empty($options['boxCols'])					OR $options['boxCols'] = 8;
+		!empty($options['boxRows'])					OR $options['boxRows'] = 4;
 
 		return array(
 			'options'	=> $options,
