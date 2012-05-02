@@ -1,89 +1,23 @@
-<table>
-	<thead>
-		<tr>
-			<?php echo isset($options['display']['datetime']) ? '<th>Date</th>' : null; ?>
-			<?php echo isset($options['display']['on_sale_datetime']) ? '<th>On Sale Date</th>' : null; ?>
-			<?php echo isset($options['display']['formatted_location']) ? '<th>Where</th>' : null; ?>
-			<?php echo isset($options['display']['venue_name']) ? '<th>Venue</th>' : null; ?>
-			<?php if(in_array(true, $options['display']['links'])): ?>
-				<th>Links</th>
-			<?php endif; ?>
-		</tr>
-	</thead>
-
-	<tfoot>
-		<tr>
-			<?php $remaining = count($results) - $options['limit']; ?>
-			<?php if($remaining > 0): ?>
-				<td colspan="<?php echo $colspan; ?>">
-					<?php echo $options['limit']; ?> events displayed. <?php echo $remaining; ?> undisplayed events.
-				</td>
-			<?php endif; ?>
-		</tr>
-	</tfoot>
-
-	<?php if( ! $options['artist'] && ! $options['mbid']): ?>
-		<tr>
-			<td colspan="<?php echo $colspan; ?>">Please enter an artist's name or Music Brainz ID.</td>
-		</tr>
-	<?php elseif( ! $options['app_id']): ?>
-		<tr>
-			<td colspan="<?php echo $colspan; ?>">Please choose a custom app ID.</td>
-		</tr>
-	<?php elseif(count($results) <= 0): ?>
-		<tr>
-			<td colspan="<?php echo $colspan; ?>">There are no events to display.</td>
-		</tr>
-	<?php else: ?>
-		<?php $i = 0; ?>
-		<?php foreach($results as $event): ?>
-			<?php if($i < $options['limit']): ?>
-			<tr>
-				<?php if(isset($options['display']['datetime'])): ?>
-					<td><?php echo date('m/d', strtotime($event->datetime)) ?></td>
-				<?php endif; ?>
-
-				<?php if(isset($options['display']['on_sale_datetime'])): ?>
-					<td><?php echo date('m/d', strtotime($event->on_sale_datetime)) ?></td>
-				<?php endif; ?>
-
-				<?php if(isset($options['display']['formatted_location'])): ?>
-					<td><?php echo $event->formatted_location; ?></td>
-				<?php endif; ?>
-
-				<?php if(isset($options['display']['venue_name'])): ?>
-					<td><?php echo $event->venue->name; ?></td>
-				<?php endif; ?>
-
-				<?php if(in_array(true, $options['display']['links'])): ?>
-					<td>
-					<?php if(isset($options['display']['links']['tickets'])): ?>
-						<?php if($event->ticket_status === 'available'): ?>
-							<a href="<?php echo $event->ticket_url; ?>" target="_blank">
-								Get Tickets
-							</a>
-						<?php else: ?>
-							<span>Sold Out</span>
-						<?php endif; ?>
-					<?php endif; ?>
-
-					<?php if(isset($options['display']['links']['google_maps'])): ?>
-						<a href="#" target="_blank">
-							Get Directions
-						</a>
-					<?php endif; ?>
-
-					<?php if(isset($options['display']['links']['fb_event'])): ?>
-						<a href="#" target="_blank">
-							Facebook
-						</a>
-					<?php endif; ?>
-					</td>
-				<?php endif; ?>
-
-				<?php $i++; ?>
-			</tr>
-			<?php endif; ?>
+<div class="slider-wrapper theme-default" style="max-width:100%;width:<?php echo $images[0]->width; ?>px;height:<?php echo $images[0]->height; ?>px;">
+	<div id="slider_<?php echo $slider->id; ?>" class="nivoSlider">
+		<?php foreach($images as $image): ?>
+		<img src="<?php echo $image->path; ?>" alt="" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
 		<?php endforeach; ?>
-	<?php endif; ?>
-</table>
+	</div>
+</div>
+<script type="text/javascript">
+$('#slider_<?php echo $slider->id; ?>').nivoSlider({
+	<?php echo ($options['effect']) ? 'effect: "'.$options['effect'].'",' : null; ?>
+	<?php echo ($options['animSpeed']) ? 'animSpeed: "'.$options['animSpeed'].'",' : null; ?>
+	<?php echo ($options['pauseTime']) ? 'pauseTime: "'.$options['pauseTime'].'",' : null; ?>
+	<?php echo ($options['directionNav']) ? 'directionNav: '.$options['directionNav'].',' : null; ?>
+	<?php echo ($options['directionNavHide']) ? 'directionNavHide: '.$options['directionNavHide'].',' : null; ?>
+	<?php echo ($options['controlNav']) ? 'controlNav: '.$options['controlNav'].',' : null; ?>
+	<?php echo ($options['keyboardNav']) ? 'keyboardNav: '.$options['keyboardNav'].',' : null; ?>
+	<?php echo ($options['pauseOnHover']) ? 'pauseOnHover: '.$options['pauseOnHover'].',' : null; ?>
+	<?php echo ($options['manualAdvance']) ? 'manualAdvance: '.$options['manualAdvance'].',' : null; ?>
+	<?php echo ($options['slices']) ? 'slices: '.$options['slices'].',' : null; ?>
+	<?php echo ($options['boxCols']) ? 'boxCols: '.$options['boxCols'].',' : null; ?>
+	<?php echo ($options['boxRows']) ? 'boxRows: '.$options['boxRows'].',' : null; ?>
+});
+</script>

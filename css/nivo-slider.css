@@ -12,12 +12,16 @@
  
 /* The Nivo Slider styles */
 .nivoSlider {
-	position:relative;
+	position: relative;
+	height: inherit; /* Wrappers height, set inline dynamically */
+	width: inherit; /* Wrappers width, set inline dynamically */
+	max-width: 100%; /* Also added by me */
 }
 .nivoSlider img {
 	position:absolute;
 	top:0px;
 	left:0px;
+	max-width: 100%;
 }
 /* If an image is wrapped in a link */
 .nivoSlider a.nivo-imageLink {

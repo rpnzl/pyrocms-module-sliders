@@ -20,4 +20,4 @@
 |	http://www.codeigniter.com/user_guide/general/routing.html
 */
 
-$route = array();
+$route['sliders/admin/settings(/:any)?'] = 'admin_settings$1';

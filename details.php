@@ -38,7 +38,7 @@ class Module_Sliders extends Module {
 					),
 				),
 				'settings' => array(
-					'name' => 'sliders.setup_title',
+					'name' => 'sliders.settings_title',
 					'uri' => 'admin/sliders/settings',
 			    ),
 			),
@@ -50,24 +50,20 @@ class Module_Sliders extends Module {
 	{
 		$this->dbforge->drop_table('sliders');
 		$this->dbforge->drop_table('slider_settings');
-		$this->dbforge->drop_table('sliders_images');
 
 		// Define tables
 		$tables = array(
 			'sliders' => array(
 				'id' => array('type' => 'INT', 'constraint' => 11, 'auto_increment' => true, 'primary' => true,),
 				'title' => array('type' => 'VARCHAR', 'constraint' => 60,),
+				'folder_id' => array('type' => 'INT', 'constraint' => 11, 'default' => 0),
 				'created_on' => array('type' => 'INT', 'constraint' => 11,),
 				'updated_on' => array('type' => 'INT', 'constraint' => 11,),
 			),
 			'slider_settings' => array(
 				'id' => array('type' => 'INT', 'constraint' => 11, 'auto_increment' => true, 'primary' => true,),
+				'folder_id' => array('type' => 'INT', 'constraint' => 11, 'default' => 0),
 				'jquery' => array('type' => 'INT', 'constraint' => 11, 'default' => 0),
-			),
-			'sliders_images' => array(
-				'slider_id' => array('type' => 'INT', 'constraint' => 11, 'default' => null),
-				'file_id' => array('type' => 'INT', 'constraint' => 11, 'default' => null),
-				'order' => array('type' => 'INT', 'constraint' => 11, 'default' => null),
 			),
 		);
 
@@ -77,10 +73,37 @@ class Module_Sliders extends Module {
 			return false;
 		}
 
-		// Set default config
+
+		$default_folder = array(
+			'id'		=> null,
+			'parent_id'	=> 0,
+			'slug'		=> 'sliders-module',
+			'name'		=> 'Sliders Module',
+			'location'	=> 'local',
+		);
+
+
+		/**
+		 * Default file folder
+		 */
+		$query = $this->db->get_where('file_folders', array('name' => 'Sliders Module'));
+		$folder_exists = $query->row();
+		if($folder_exists)
+		{
+			$folder_id = $folder_exists->id;
+		}
+		else
+		{
+			$this->db->insert('file_folders', $default_folder);
+			$folder_id = $this->db->insert_id();
+		}
+
+		
+
 		$default_settings = array(
-			'id' => 1,
-			'jquery' => 0,
+			'id'		 => 1,
+			'folder_id'  => $folder_id,
+			'jquery' 	 => 0,
 		);
 
 		// Insert config
@@ -97,13 +120,13 @@ class Module_Sliders extends Module {
 	{
 		$this->dbforge->drop_table('sliders');
 		$this->dbforge->drop_table('slider_settings');
-		$this->dbforge->drop_table('sliders_images');
 		return true;
 	}
 
 
 	public function upgrade($old_version)
 	{
+		// Upgrade Logic
 		return true;
 	}
 }

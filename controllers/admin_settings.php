@@ -13,40 +13,26 @@ class Admin_settings extends Admin_Controller {
 	 */
 	protected $section = 'settings';
 
+
 	/**
-	 * Validation rules used by the form_validation library
+	 * Array that contains the validation rules
 	 *
-	 * @var array
+	 * @access	protected
+	 * @var		array
 	 */
-	private $validation_rules = array(
-		/*
+	protected $_validation_rules = array(
 		array(
-			'field' => 'title',
-			'label' => 'lang:page_layouts.title_label',
-			'rules' => 'trim|required|max_length[60]'
+			'field' => 'jquery',
+			'label' => 'jQuery',
+			'rules' => 'trim|required|numeric'
 		),
 		array(
-			'field' => 'theme_layout',
-			'label' => 'lang:page_layouts.theme_layout_label',
-			'rules' => 'trim'
+			'field' => 'folder_id',
+			'label' => 'Folder',
+			'rules' => 'trim|required|numeric'
 		),
-		array(
-			'field' => 'body',
-			'label' => 'lang:page_layouts.body_label',
-			'rules' => 'trim|required'
-		),
-		array(
-			'field' => 'css',
-			'label' => 'lang:page_layouts.css_label',
-			'rules' => 'trim'
-		),
-		array(
-			'field' => 'js',
-			'label' => 'lang:page.js_label',
-			'rules' => 'trim'
-		),
-		*/
 	);
+
 
 	/**
 	 * Constructor method
@@ -60,65 +46,71 @@ class Admin_settings extends Admin_Controller {
 		parent::__construct();
 
 		// Load the required classes
-		$this->load->model('slider_settings_m');
-		$this->load->model('slider_m');
+		$this->load->model(array(
+			'slider_settings_m',
+			'slider_m',
+			'files/file_folders_m',
+		));
 		$this->lang->load('sliders');
 
 		// Load the validation library
 		$this->load->library('form_validation');
 
 		// Set the validation rules
-		//$this->form_validation->set_rules($this->validation_rules);
+		$this->form_validation->set_rules($this->_validation_rules);
+
+		$this->template
+			->title($this->module_details['name']);
 	}
+
+
 
 	/**
 	 * Index method
 	 */
 	public function index()
 	{
-		/*
-		if ($_POST)
+		// If val is run
+		if ($this->form_validation->run())
 		{
-			// Set validation rules from model
-			//$this->form_validation->set_rules($this->slider_settings_m->validation_rules);
-
 			// Get posted vars
-			$setup_id = $this->input->post('id');
+			$id = $this->input->post('id');
 			$props = array(
-				'jquery' = $this->input->post('jquery'),
+				'jquery' => $this->input->post('jquery'),
+				'folder_id' => $this->input->post('folder_id'),
 			);
 
-			// If val is run
-			if ($this->form_validation->run())
+			if ($id = $this->slider_settings_m->update($id, $props))
 			{
-				if ($id = $this->slider_settings_m->update($setup_id, $props))
-				{
-					// Fire an event. A new keyword has been added.
-					//Events::trigger('keyword_created', $id);
-
-					$this->session->set_flashdata('success', 'Settings updated.');
-				}
-				else
-				{
-					$this->session->set_flashdata('error', 'Settings updated failed.'));
-				}
-
-				redirect('admin/sliders/setup');
+				$this->session->set_flashdata('success', 'Settings updated.');
 			}
+			else
+			{
+				$this->session->set_flashdata('error', 'Settings updated failed.');
+			}
+
+			$this->input->post('btnAction') == 'save_exit' ?
+				redirect('admin/sliders') :
+				redirect('admin/sliders/settings');
 		}
-		*/
 
 		// Loop through each validation rule
-		/*
-		foreach ($this->validation_rules as $rule)
+		foreach ($this->_validation_rules as $rule)
 		{
 			$slider_settings_m->{$rule['field']} = set_value($rule['field']);
 		}
-		*/
+
+		$settings 	= $this->slider_settings_m->get_all();
+		$settings 	= $settings[0];
+		$folders 	= $this->file_folders_m->get_all();
+		foreach($folders as $folder)
+		{
+			$folder_opts[$folder->id] = $folder->name;
+		}
 
 		$this->template
-			->title($this->module_details['name']);
-			//->set('settings', $this->slider_settings_m->get_all())
-			//->build('admin/settings/index');
+			->set('settings', $settings)
+			->set('folders', $folder_opts)
+			->build('admin/settings/index');
 	}
 }
