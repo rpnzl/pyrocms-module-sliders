@@ -6,9 +6,7 @@
 * Version: 1.0
 
 ## To Do
-* Widget display file path issue.
-* Sliders language file.
-* Can currently have multiple sliders on a single page, but not multiple instances of *the same* slider. Could be remedied by altering the display id.
+* Can have multiple sliders on a single page, but not multiple instances of *the same* slider. Could be remedied by altering the display id.
 
 ## Description
 

@@ -1,11 +1,4 @@
-<style>
-div#slider_<?php echo $slider->id; ?> {
-	width: <?php echo $images[0]->width; ?>px;
-	max-width: 100%;
-	height: <?php echo $images[0]->height; ?>px;
-}
-</style>
-<div class="slider-wrapper theme-default">
+<div class="slider-wrapper theme-default" style="max-width:100%;width:<?php echo $images[0]->width; ?>px;height:<?php echo $images[0]->height; ?>px;">
 	<div id="slider_<?php echo $slider->id; ?>" class="nivoSlider">
 		<?php foreach($images as $image): ?>
 		<img src="<?php echo $image->path; ?>" alt="" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />

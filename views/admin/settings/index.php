@@ -1,6 +1,6 @@
 <div class="one_half">
 	<section class="title">
-		<h4><?php echo lang('sliders.setup_title'); ?></h4>
+		<h4><?php echo lang('sliders.settings_title'); ?></h4>
 	</section>
 
 	<section class="item">

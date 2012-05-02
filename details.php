@@ -38,7 +38,7 @@ class Module_Sliders extends Module {
 					),
 				),
 				'settings' => array(
-					'name' => 'sliders.setup_title',
+					'name' => 'sliders.settings_title',
 					'uri' => 'admin/sliders/settings',
 			    ),
 			),
@@ -126,6 +126,7 @@ class Module_Sliders extends Module {
 
 	public function upgrade($old_version)
 	{
+		// Upgrade Logic
 		return true;
 	}
 }
