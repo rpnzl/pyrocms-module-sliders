@@ -3,7 +3,7 @@
 * Author: Michael Giuliana
 * Twitter: [@rpnzldesign](http://www.twitter.com/rpnzl)
 * Website: [http://rpnzl.com/](http://rpnzl.com/)
-* Version: 1.0
+* Version: 1.0.1
 
 ## To Do
 * Can have multiple sliders on a single page, but not multiple instances of *the same* slider. Could be remedied by altering the display id.
