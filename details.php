@@ -75,12 +75,13 @@ class Module_Sliders extends Module {
 
 
 		$default_folder = array(
-			'id'		=> null,
-			'parent_id'	=> 0,
-			'slug'		=> 'sliders-module',
-			'name'		=> 'Sliders Module',
-			'location'	=> 'local',
-		);
+			'id'			=> null,
+			'parent_id'		=> 0,
+			'slug'			=> 'sliders-module',
+			'name'			=> 'Sliders Module',
+			'location'		=> 'local',
+			'date_added'	=> now(),
+			);
 
 
 		/**
