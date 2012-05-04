@@ -1,7 +1,4 @@
 <ol>
-	<?php echo form_hidden('api_version', $options['api_version']); ?>
-	<?php echo form_hidden('format', $options['format']); ?>
-
 	<fieldset>
 		<legend>General Settings</legend>
 		<li class="<?php echo alternator('even', ''); ?>">
