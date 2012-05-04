@@ -7,7 +7,7 @@
  */
 class Module_Sliders extends Module {
 
-	public $version = '1.0.1';
+	public $version = '1.0.2';
 
 	public function info()
 	{
