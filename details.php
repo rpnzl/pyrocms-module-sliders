@@ -89,7 +89,7 @@ class Module_Sliders extends Module {
 		);
 
 		// Insert config
-		if ( ! $this->db->insert('slider_settings', $default_settings))
+		if ( ! $this->db->insert('sliders', $default_settings))
 		{
 			return false;
 		}
