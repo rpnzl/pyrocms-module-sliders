@@ -29,18 +29,7 @@ class Module_Sliders extends Module {
 				'sliders' => array(
 					'name' => 'sliders.list_title',
 					'uri' => 'admin/sliders',
-					'shortcuts' => array(
-						array(
-							'name' => 'sliders.create_title',
-							'uri' => 'admin/sliders/create',
-							'class' => 'add'
-						),
-					),
 				),
-				'settings' => array(
-					'name' => 'sliders.settings_title',
-					'uri' => 'admin/sliders/settings',
-			    ),
 			),
 		);
 	}
@@ -49,18 +38,10 @@ class Module_Sliders extends Module {
 	public function install()
 	{
 		$this->dbforge->drop_table('sliders');
-		$this->dbforge->drop_table('slider_settings');
 
 		// Define tables
 		$tables = array(
 			'sliders' => array(
-				'id' => array('type' => 'INT', 'constraint' => 11, 'auto_increment' => true, 'primary' => true,),
-				'title' => array('type' => 'VARCHAR', 'constraint' => 60,),
-				'folder_id' => array('type' => 'INT', 'constraint' => 11, 'default' => 0),
-				'created_on' => array('type' => 'INT', 'constraint' => 11,),
-				'updated_on' => array('type' => 'INT', 'constraint' => 11,),
-			),
-			'slider_settings' => array(
 				'id' => array('type' => 'INT', 'constraint' => 11, 'auto_increment' => true, 'primary' => true,),
 				'folder_id' => array('type' => 'INT', 'constraint' => 11, 'default' => 0),
 				'jquery' => array('type' => 'INT', 'constraint' => 11, 'default' => 0),
@@ -120,7 +101,6 @@ class Module_Sliders extends Module {
 	public function uninstall()
 	{
 		$this->dbforge->drop_table('sliders');
-		$this->dbforge->drop_table('slider_settings');
 		return true;
 	}
 
