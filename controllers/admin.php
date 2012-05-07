@@ -7,7 +7,7 @@ class Admin extends Admin_Controller {
 	 *
 	 * @var string
 	 */
-	protected $section = 'settings';
+	protected $section = 'sliders';
 
 
 	/**
@@ -43,7 +43,6 @@ class Admin extends Admin_Controller {
 
 		// Load the required classes
 		$this->load->model(array(
-			'slider_settings_m',
 			'slider_m',
 			'files/file_folders_m',
 		));
@@ -76,7 +75,7 @@ class Admin extends Admin_Controller {
 				'folder_id' => $this->input->post('folder_id'),
 			);
 
-			if ($id = $this->slider_settings_m->update($id, $props))
+			if ($id = $this->slider_m->update($id, $props))
 			{
 				$this->session->set_flashdata('success', 'Settings updated.');
 			}
@@ -87,16 +86,16 @@ class Admin extends Admin_Controller {
 
 			$this->input->post('btnAction') == 'save_exit' ?
 				redirect('admin/sliders') :
-				redirect('admin/sliders/settings');
+				redirect('admin/sliders');
 		}
 
 		// Loop through each validation rule
 		foreach ($this->_validation_rules as $rule)
 		{
-			$slider_settings_m->{$rule['field']} = set_value($rule['field']);
+			$slider_m->{$rule['field']} = set_value($rule['field']);
 		}
 
-		$settings 	= $this->slider_settings_m->get_all();
+		$settings 	= $this->slider_m->get_all();
 		$settings 	= $settings[0];
 		$folders 	= $this->file_folders_m->get_all();
 		foreach($folders as $folder)
@@ -107,6 +106,6 @@ class Admin extends Admin_Controller {
 		$this->template
 			->set('settings', $settings)
 			->set('folders', $folder_opts)
-			->build('admin/settings/index');
+			->build('admin/index');
 	}
 }
