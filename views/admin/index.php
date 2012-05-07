@@ -1,52 +1,45 @@
 <div class="one_half">
 	<section class="title">
-		<h4><?php echo lang('sliders.list_title'); ?></h4>
+		<h4><?php echo lang('sliders.settings_title'); ?></h4>
 	</section>
-	
-	<section class="item">
-		<table>
-			<thead>
-				<tr>
-					<th><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')); ?></th>
-					<th>Slider Title</th>
-					<th>Images</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<td colspan="4"></td>
-				</tr>
-			</tfoot>
-			<tbody>
-				<?php foreach($sliders as $slider): ?>
-					<tr>
-						<td><?php echo form_checkbox('action_to[]', $slider->id); ?></td>
-						<td><?php echo $slider->title; ?></td>
-						<td class="collapse">TO DO</td>
-						<td>
-							<?php echo anchor('admin/sliders/edit/' . $slider->id, lang('global:edit'), 'class="btn orange edit"'); ?>
-							<?php echo anchor('admin/sliders/delete/' . $slider->id, lang('global:delete'), array('class'=>'confirm btn red delete')); ?>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
 
-		<div class="table_action_buttons">
-			<?php $this->load->view('admin/partials/buttons', array('buttons' => array('delete'))); ?>
-		</div>
+	<section class="item">
+		<?php echo form_open(uri_string(), 'class="crud"'); ?>
+			<?php echo form_hidden('id', $settings->id); ?>
+			<div class="form_inputs">
+				<fieldset>
+					<ul>
+						<li class="<?php echo alternator('even', ''); ?>">
+							<label for="folder_id"><?php echo lang('sliders.folder_id_label');?></label>
+							<?php echo form_dropdown('folder_id', $folders, $settings->folder_id); ?>
+						</li>
+
+						<li class="<?php echo alternator('even', ''); ?>">
+							<label for="jquery"><?php echo lang('sliders.jquery_label');?></label>
+							<?php echo form_dropdown('jquery', array(1 => 'Yes', 2 => 'No'), $settings->jquery); ?>
+						</li>
+					</ul>
+				</fieldset>
+			</div>
+
+			<div class="buttons align-right padding-top">
+				<?php $this->load->view('admin/partials/buttons', array('buttons' => array('save', 'save_exit', 'cancel') )); ?>
+			</div>
+
+		<?php echo form_close(); ?>
 	</section>
 </div>
 
 <div class="one_half last scroll-follow">	
 	<section class="title">
-		<h4><?php echo lang('sliders.index_explanation_title'); ?></h4>
+		<h4><?php echo lang('sliders.settings_explanation_title'); ?></h4>
 	</section>
 	
 	<section class="item">
+		<div id="page-details">
 		<p>
-			<?php echo lang('sliders.index_explanation'); ?>
+			<?php echo lang('sliders.settings_explanation'); ?>
 		</p>
+		</div>
 	</section>
 </div>
