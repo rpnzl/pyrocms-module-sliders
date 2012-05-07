@@ -1,9 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-/**
- * Sliders controller
- *
- * @author 		Michael Giuliana
- */
+
 class Admin extends Admin_Controller {
 
 	/**
@@ -11,7 +7,7 @@ class Admin extends Admin_Controller {
 	 *
 	 * @var string
 	 */
-	protected $section = 'sliders';
+	protected $section = 'settings';
 
 
 	/**
@@ -21,10 +17,10 @@ class Admin extends Admin_Controller {
 	 * @var		array
 	 */
 	protected $_validation_rules = array(
-		'title' => array(
-			'field' => 'title',
-			'label' => 'Title',
-			'rules' => 'trim|htmlspecialchars|required|max_length[100]'
+		array(
+			'field' => 'jquery',
+			'label' => 'jQuery',
+			'rules' => 'trim|required|numeric'
 		),
 		array(
 			'field' => 'folder_id',
@@ -51,14 +47,10 @@ class Admin extends Admin_Controller {
 			'slider_m',
 			'files/file_folders_m',
 		));
-
 		$this->lang->load('sliders');
 
 		// Load the validation library
-		$this->load->library(array(
-			'form_validation',
-			'files/files',
-		));
+		$this->load->library('form_validation');
 
 		// Set the validation rules
 		$this->form_validation->set_rules($this->_validation_rules);
@@ -69,231 +61,52 @@ class Admin extends Admin_Controller {
 
 
 
-
-
+	/**
+	 * Index method
+	 */
 	public function index()
 	{
-		$this->template
-			->set('sliders', $this->slider_m->get_all())
-			->build('admin/index');
-	}
-
-
-
-
-
-	public function create()
-	{
-		// Get general settings
-		$settings 	= $this->slider_settings_m->get_all();
-		$settings 	= $settings[0];
-
-		// If validation is run
+		// If val is run
 		if ($this->form_validation->run())
 		{
-			// If user wants to create a new folder
-			if($this->input->post('folder_id') == 0)
-			{
-				// Insert the record
-				if(Files::create_folder($settings->folder_id, $this->input->post('title')))
-				{
-					$folder_id = $this->db->insert_id();
-				}
-			}
-			else
-			{
-				// Otherwise, just use the posted folder id
-				$folder_id = $this->input->post('folder_id');
-			}
-
-			// Set slider props
+			// Get posted vars
+			$id = $this->input->post('id');
 			$props = array(
-				'title' => $this->input->post('title'),
-				'folder_id' => $folder_id,
-				'created_on' => now(),
-				'updated_on' => now(),
+				'jquery' => $this->input->post('jquery'),
+				'folder_id' => $this->input->post('folder_id'),
 			);
 
-			// Insert new slider
-			if ($id = $this->slider_m->insert($props))
+			if ($id = $this->slider_settings_m->update($id, $props))
 			{
-				$this->session->set_flashdata('success', 'Slider created.');
+				$this->session->set_flashdata('success', 'Settings updated.');
 			}
 			else
 			{
-				$this->session->set_flashdata('error', 'Slider was not created.');
+				$this->session->set_flashdata('error', 'Settings updated failed.');
 			}
 
 			$this->input->post('btnAction') == 'save_exit' ?
 				redirect('admin/sliders') :
-				redirect('admin/sliders/edit/' . $id);
+				redirect('admin/sliders/settings');
 		}
 
 		// Loop through each validation rule
 		foreach ($this->_validation_rules as $rule)
 		{
-			$slider_m->{$rule['field']} = set_value($rule['field']);
+			$slider_settings_m->{$rule['field']} = set_value($rule['field']);
 		}
 
-
-		$query = $this->db->get_where('file_folders', array('parent_id' => $settings->folder_id));
-		$folder_opts[0] = 'Create a new folder';
-		foreach($query->result() as $row)
-		{
-			$folder_opts[$row->id] = $row->name;
-		}
-
-		$this->template
-			->set('folders', $folder_opts)
-			->build('admin/form');
-	}
-
-
-
-
-
-
-
-	public function edit($id = 0)
-	{
-		// Get requested slider or redirect out
-		$slider = $this->slider_m->get($id);
-		$slider OR redirect('admin/sliders');
-
-		// Get general settings
 		$settings 	= $this->slider_settings_m->get_all();
 		$settings 	= $settings[0];
-
-		// If validation is run
-		if ($this->form_validation->run())
+		$folders 	= $this->file_folders_m->get_all();
+		foreach($folders as $folder)
 		{
-			// If user wants to create a new folder
-			if($this->input->post('folder_id') == 0)
-			{
-				// Insert the record
-				if(Files::create_folder($settings->folder_id, $this->input->post('title')))
-				{
-					$folder_id = $this->db->insert_id();
-				}
-			}
-			else
-			{
-				// Otherwise, just use the posted folder id
-				$folder_id = $this->input->post('folder_id');
-			}
-
-			// Set slider props
-			$props = array(
-				'title' => $this->input->post('title'),
-				'folder_id' => $folder_id,
-				'created_on' => now(),
-				'updated_on' => now(),
-			);
-
-			// Update slider
-			if ($success = $this->slider_m->update($id, $props))
-			{
-				$this->session->set_flashdata('success', 'Slider created.');
-			}
-			else
-			{
-				$this->session->set_flashdata('error', 'Slider was not created.');
-			}
-
-			$this->input->post('btnAction') == 'save_exit' ?
-				redirect('admin/sliders') :
-				redirect('admin/sliders/edit/' . $id);
-		}
-
-		// Loop through each validation rule
-		foreach ($this->_validation_rules as $rule)
-		{
-			$slider_m->{$rule['field']} = set_value($rule['field']);
-		}
-
-
-		$query = $this->db->get_where('file_folders', array('parent_id' => $settings->folder_id));
-		$folder_opts[0] = 'Create a new folder';
-		foreach($query->result() as $row)
-		{
-			$folder_opts[$row->id] = $row->name;
+			$folder_opts[$folder->id] = $folder->name;
 		}
 
 		$this->template
+			->set('settings', $settings)
 			->set('folders', $folder_opts)
-			->set('slider', $slider)
-			->build('admin/form');
-	}
-
-
-
-
-
-
-
-	/**
-	 * Helper method to determine what to do with selected items from form post
-	 * @access public
-	 * @return void
-	 */
-	public function action()
-	{
-		switch ($this->input->post('btnAction'))
-		{	
-			case 'delete':
-				$this->delete();
-			break;
-			
-			default:
-				redirect('admin/sliders');
-			break;
-		}
-	}
-
-
-
-
-	public function delete($id = 0)
-	{
-		// Delete one
-		$ids = ($id) ? array($id) : $this->input->post('action_to');
-
-		// Go through the array of slugs to delete
-		if ( ! empty($ids))
-		{
-			$deleted_ids = array();
-			foreach ($ids as $id)
-			{
-				if ($success = $this->slider_m->delete($id))
-				{
-					$deleted_ids[] = $id;
-				}
-				else
-				{
-					$this->session->set_flashdata('error', 'There was an error.');
-				}
-			}
-		}
-
-		// Some sliders have been deleted
-		if ( ! empty($deleted_ids))
-		{
-			// Only deleting one slider
-			if (count($deleted_ids) == 1)
-			{
-				$this->session->set_flashdata('success', 'Slider was deleted.');
-			}
-			// Deleting multiple sliders
-			else
-			{
-				$this->session->set_flashdata('success', 'Sliders have been deleted.');
-			}
-		}
-		// For some reason, none of them were deleted
-		else
-		{
-			$this->session->set_flashdata('notice', 'Error deleting sliders.');
-		}
-		redirect('admin/sliders');
+			->build('admin/settings/index');
 	}
 }
