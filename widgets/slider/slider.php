@@ -86,18 +86,31 @@ class Widget_Slider extends Widgets
 
 	public function form($options)
 	{
+		// load classes, libs
+		$this->load->library(array('files/files'));
 		$this->load->model(array(
-			'sliders/slider_settings_m',
 			'sliders/slider_m',
+			'files/file_folders_m',
+			'files/file_m',
 		));
 
-		$sliders = $this->slider_m->get_all();
+		// get settings
+		$settings = $this->slider_m->get_settings();
+
+		// get child folders of main module folder
+		$query = $this->db->order_by('sort', 'asc')->get_where('file_folders', array('parent_id' => $settings->folder_id));
+		$folders = $query->result();
+
+		// define the folder dropdown array
 		$select_slider = array();
-		foreach($sliders as $slider)
+		foreach($folders as $folder)
 		{
-			$select_slider[$slider->id] = $slider->title;
+			$query = $this->db->get_where('files', array('folder_id' => $folder->id, 'type' => 'i'));
+			$count = count($query->result()) > 1 ? ' ['.count($query->result()).' images]' : ' ['.count($query->result()).' image]';
+			$select_slider[$folder->id] = $folder->name . $count;
 		}
 
+		// option defaults
 		!empty($options['slider_id'])				OR $options['slider_id'] = null;
 		!empty($options['captions'])				OR $options['captions'] = 'false';
 		!empty($options['effect'])					OR $options['effect'] = 'fade';
@@ -113,6 +126,7 @@ class Widget_Slider extends Widgets
 		!empty($options['boxCols'])					OR $options['boxCols'] = 8;
 		!empty($options['boxRows'])					OR $options['boxRows'] = 4;
 
+		// return the good stuff
 		return array(
 			'options'	=> $options,
 			'select_slider'	=> $select_slider,
@@ -122,23 +136,20 @@ class Widget_Slider extends Widgets
 
 	public function run($options)
 	{
-		// Load templates and libraries
+		// load classes, libs
 		$this->load->library(array('files/files'));
 		$this->load->model(array(
-			'sliders/slider_settings_m',
 			'sliders/slider_m',
+			'files/file_folders_m',
 			'files/file_m',
 		));
 
+		// get settings
+		$settings = $this->slider_m->get_settings();
 
-		// Get settings
-		$settings = $this->slider_settings_m->get_all();
-		$settings = $settings[0];
-
-
-		// Get slider and images
-		$slider = $this->slider_m->get($options['slider_id']);
-		$query = $this->db->order_by('sort', 'asc')->get_where('files', array('folder_id' => $slider->folder_id));
+		// get slider and images
+		$folder = $this->file_folders_m->get($options['slider_id']);
+		$query = $this->db->order_by('sort', 'asc')->get_where('files', array('folder_id' => $folder->id, 'type' => 'i'));
 		$images = $query->result();
 
 		// Add path to module assets
@@ -169,7 +180,7 @@ class Widget_Slider extends Widgets
 		// returns the variables to be used within the widget's view
 		return array(
 			'options'	=> $options,
-			'slider'	=> $slider,
+			'slider'	=> $folder,
 			'images'	=> $images,
 		);
 	}
