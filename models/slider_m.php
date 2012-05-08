@@ -7,5 +7,11 @@
  */
 class Slider_m extends MY_Model
 {
-	// stuff
+	public function get_settings()
+	{
+		$settings = parent::get_all();
+		$settings = $settings[0];
+
+		return $settings;
+	}
 }

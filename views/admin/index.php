@@ -16,7 +16,7 @@
 
 						<li class="<?php echo alternator('even', ''); ?>">
 							<label for="jquery"><?php echo lang('sliders.jquery_label');?></label>
-							<?php echo form_dropdown('jquery', array(1 => 'Yes', 2 => 'No'), $settings->jquery); ?>
+							<?php echo form_dropdown('jquery', array(1 => 'Yes', 0 => 'No'), $settings->jquery); ?>
 						</li>
 					</ul>
 				</fieldset>
