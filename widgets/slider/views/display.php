@@ -1,11 +1,18 @@
 <?php if(count($images) != 0): ?>
-	<div class="slider-wrapper theme-default" style="max-width:98%;width:<?php echo $images[0]->width; ?>px;height:<?php echo $images[0]->height; ?>px;">
+
+	<!-- theme settings -->
+	<?php if($options['theme'] === 'none' || $options['theme'] === 'default'): ?>
+		<div class="slider-wrapper <?php echo ($options['theme'] != 'none') ? 'theme-default' : null; ?>" style="max-width:100%;width:<?php echo $images[0]->width; ?>px;height:<?php echo $images[0]->height; ?>px;">
+	<?php else: ?>
+		<div class="slider-wrapper theme-<?php echo $options['theme']; ?>" style="max-width:100%;">
+	<?php endif; ?>
 		<div id="slider_<?php echo $slider->id; ?>" class="nivoSlider">
 			<?php foreach($images as $image): ?>
 			<img src="<?php echo $image->path; ?>" alt="" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
 			<?php endforeach; ?>
 		</div>
 	</div>
+
 	<script type="text/javascript">
 	$('#slider_<?php echo $slider->id; ?>').nivoSlider({
 		<?php echo ($options['effect']) ? 'effect: "'.$options['effect'].'",' : null; ?>

@@ -7,6 +7,11 @@
 		</li>
 
 		<li class="<?php echo alternator('even', ''); ?>">
+			<label for="theme">Theme</label>
+			<?php echo form_dropdown('theme', array('none' => 'None', 'default' => 'Default', 'orman' => 'Orman', 'pascal' => 'Pascal',), $options['theme']); ?>
+		</li>
+
+		<li class="<?php echo alternator('even', ''); ?>">
 			<label for="captions">Captions</label>
 			<?php echo form_dropdown('captions', array('true' => 'On', 'false' => 'Off',), $options['captions']); ?>
 		</li>

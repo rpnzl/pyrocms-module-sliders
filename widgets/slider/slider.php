@@ -30,6 +30,10 @@ class Widget_Slider extends Widgets
 			'label' => 'Slider',
 		),
 		array(
+			'field' => 'theme',
+			'label' => 'Theme',
+		),
+		array(
 			'field' => 'effect',
 			'label' => 'Effect',
 		),
@@ -113,6 +117,7 @@ class Widget_Slider extends Widgets
 		// option defaults
 		!empty($options['slider_id'])				OR $options['slider_id'] = null;
 		!empty($options['captions'])				OR $options['captions'] = 'false';
+		!empty($options['theme'])					OR $options['theme'] = 'default';
 		!empty($options['effect'])					OR $options['effect'] = 'fade';
 		!empty($options['animSpeed'])				OR $options['animSpeed'] = 500;
 		!empty($options['pauseTime'])				OR $options['pauseTime'] = 3000;
@@ -169,12 +174,17 @@ class Widget_Slider extends Widgets
 		}
 
 		// append slider themes
-		$this->template->append_css(array(
-			'sliders::nivo-slider.css',
-			'sliders::default.css',
-			'sliders::orman.css',
-			'sliders::pascal.css',
-		));
+		if($options['theme'] != 'none')
+		{
+			$this->template->append_css(array(
+				'sliders::nivo-slider.css',
+				'sliders::'.$options['theme'].'.css',
+			));
+		}
+		else
+		{
+			$this->template->append_css(array('sliders::nivo-slider.css',));
+		}
 
 		// return vars
 		return array(
