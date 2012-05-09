@@ -18,6 +18,8 @@ Navigate to **addons/shared_addons/modules** and then...
 
 	git clone git://github.com/rpnzl/pyrocms-module-sliders.git sliders
 
+#### Then To Add-ons!
+
 When you install this module in the Add-ons section of your control panel, the installer will add a *Sliders Module* folder to your Files Module as a default container for individual slider folders/assets.
 
 ### General Settings
