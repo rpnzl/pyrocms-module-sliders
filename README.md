@@ -18,3 +18,5 @@ When you click install, along with creating the necessary tables, the installer 
 ## Important
 
 The slider widget currently utilizes a path that points to the **addons/shared_addons/modules** directory. If you'd like to use the **addons/default/modules** directory instead, you'll have to modify the included slider widget's run() method.
+
+The widget must be contained in the page::body, or else the template append won't fire.
