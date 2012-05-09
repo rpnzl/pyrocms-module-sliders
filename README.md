@@ -1,9 +1,4 @@
-# PyroCMS Sliders Module
-
-* Author: Michael Giuliana
-* Twitter: [@rpnzldesign](http://www.twitter.com/rpnzl)
-* Website: [http://rpnzl.com/](http://rpnzl.com/)
-* Version: 1.1
+# PyroCMS Sliders Module v1.1
 
 ## Description
 
@@ -73,6 +68,12 @@ If you'd like to use a different directory instead, you'll have to modify the in
 
 You can find that [here](http://nivo.dev7studios.com/support/jquery-plugin-usage/).
 
-## Special Thanks
+## General Info
+
+* Author: Michael Giuliana
+* Twitter: [@rpnzldesign](http://www.twitter.com/rpnzl)
+* Website: [http://rpnzl.com/](http://rpnzl.com/)
+
+### Special Thanks
 
 * [Dev7studios](http://nivo.dev7studios.com/), who created and maintain the friendly Nivo Slider.
