@@ -5,9 +5,6 @@
 * Website: [http://rpnzl.com/](http://rpnzl.com/)
 * Version: 1.1
 
-## To Do
-* Can have multiple sliders on a single page, but not multiple instances of *the same* slider. Could be remedied by altering the display id.
-
 ## Description
 
 This module will allow you to easily add Nivo Sliders to your current PyroCMS website. This module utilizes the core Files module to manage images. The Slider widget includes most of the Nivo Slider's javascript options, and we'll hopefully see it extended in the future!
@@ -21,4 +18,3 @@ When you click install, along with creating the necessary tables, the installer 
 ## Important
 
 The slider widget currently utilizes a path that points to the **addons/shared_addons/modules** directory. If you'd like to use the **addons/default/modules** directory instead, you'll have to modify the included slider widget's run() method.
-

@@ -49,10 +49,10 @@ class Admin extends Admin_Controller {
 
 	public function index()
 	{
-		// If val is run
+		// if val is run
 		if ($this->form_validation->run())
 		{
-			// Get posted vars
+			// get posted vars
 			$id = $this->input->post('id');
 			$props = array(
 				'jquery'	=> $this->input->post('jquery'),
@@ -71,13 +71,13 @@ class Admin extends Admin_Controller {
 			redirect('admin/sliders');
 		}
 
-		// Loop through each validation rule
+		// loop through each validation rule
 		foreach ($this->_validation_rules as $rule)
 		{
 			$slider_m->{$rule['field']} = set_value($rule['field']);
 		}
 
-		// Get folders for dropdown
+		// get folders for dropdown
 		$folders = $this->file_folders_m->get_all();
 		foreach($folders as $folder)
 		{

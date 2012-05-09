@@ -22,7 +22,7 @@ class Widget_Slider extends Widgets
 
 	public $author		= 'Michael Giuliana';
 	public $website		= 'http://rpnzl.com';
-	public $version		= '1.0';
+	public $version		= '1.1';
 
 	public $fields = array(
 		array(
@@ -152,10 +152,10 @@ class Widget_Slider extends Widgets
 		$query = $this->db->order_by('sort', 'asc')->get_where('files', array('folder_id' => $folder->id, 'type' => 'i'));
 		$images = $query->result();
 
-		// Add path to module assets
+		// add path to module assets
 		Asset::add_path('sliders', 'addons/shared_addons/modules/sliders/');
 
-		// Include jQuery if needed
+		// include jQuery if needed
 		if($settings->jquery == 1)
 		{
 			$this->template->append_js(array(
@@ -168,8 +168,7 @@ class Widget_Slider extends Widgets
 			$this->template->append_js('sliders::jquery.nivo.slider.pack.js');
 		}
 
-
-		// Append slider themes
+		// append slider themes
 		$this->template->append_css(array(
 			'sliders::nivo-slider.css',
 			'sliders::default.css',
@@ -177,7 +176,7 @@ class Widget_Slider extends Widgets
 			'sliders::pascal.css',
 		));
 
-		// returns the variables to be used within the widget's view
+		// return vars
 		return array(
 			'options'	=> $options,
 			'slider'	=> $folder,
