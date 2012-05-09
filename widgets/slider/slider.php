@@ -158,6 +158,7 @@ class Widget_Slider extends Widgets
 		$images = $query->result();
 
 		// add path to module assets
+		// MODIFY THIS PATH IF YOU'D LIKE TO KEEP THE MODULE ELSEWHERE
 		Asset::add_path('sliders', 'addons/shared_addons/modules/sliders/');
 
 		// include jQuery if needed
