@@ -7,6 +7,25 @@
 class Slider_m extends MY_Model
 {
 	/**
+	 * Array that contains the validation rules.
+	 *
+	 * @access	public
+	 * @var		array
+	 */
+	public $_validation_rules = array(
+		array(
+			'field' => 'jquery',
+			'label' => 'jQuery',
+			'rules' => 'trim|required|numeric'
+		),
+		array(
+			'field' => 'folder_id',
+			'label' => 'Folder',
+			'rules' => 'trim|required|numeric'
+		),
+	);
+
+	/**
 	 * Get Sliders Module settings.
 	 * 
 	 * Takes the work out of grabbing the settings whenever

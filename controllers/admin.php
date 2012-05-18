@@ -10,26 +10,6 @@ class Admin extends Admin_Controller {
 	protected $section = 'sliders';
 
 
-	/**
-	 * Array that contains the validation rules
-	 *
-	 * @access	protected
-	 * @var		array
-	 */
-	protected $_validation_rules = array(
-		array(
-			'field' => 'jquery',
-			'label' => 'jQuery',
-			'rules' => 'trim|required|numeric'
-		),
-		array(
-			'field' => 'folder_id',
-			'label' => 'Folder',
-			'rules' => 'trim|required|numeric'
-		),
-	);
-
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -40,7 +20,7 @@ class Admin extends Admin_Controller {
 		$this->load->model(array('slider_m', 'files/file_folders_m',));
 
 		// set validation rules
-		$this->form_validation->set_rules($this->_validation_rules);
+		$this->form_validation->set_rules($this->slider_m->_validation_rules);
 
 		// template settings
 		$this->template->title($this->module_details['name']);
@@ -72,7 +52,7 @@ class Admin extends Admin_Controller {
 		}
 
 		// loop through each validation rule
-		foreach ($this->_validation_rules as $rule)
+		foreach ($this->slider_m->_validation_rules as $rule)
 		{
 			$slider_m->{$rule['field']} = set_value($rule['field']);
 		}
