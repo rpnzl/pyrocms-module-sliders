@@ -91,3 +91,13 @@
 .nivo-controlNav a.active {
 	font-weight:bold;
 }
+
+.nivo-controlNav {
+	position:absolute;
+	bottom:-50px; /* Put the nav below the slider */
+}
+.nivo-controlNav img {
+	display:inline; /* Unhide the thumbnails */
+	position:relative;
+	margin-right:10px;
+}

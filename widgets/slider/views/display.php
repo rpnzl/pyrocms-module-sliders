@@ -8,10 +8,11 @@
 	<?php endif; ?>
 		<div id="slider-<?php echo $slider->id; ?>" class="nivoSlider">
 			<?php foreach($images as $image): ?>
-			<img src="<?php echo $image->path; ?>" alt="" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
+			<img src="<?php echo $image->path; ?>" alt="" rel="{{ url:site }}<?php echo ($options['controlNavThumbs'] === 'true') ? 'files/thumb/'.$image->id.'/70/50' : null; ?>" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
 			<?php endforeach; ?>
 		</div>
 	</div>
+	<br style="clear:both;">
 
 	<script type="text/javascript">
 	$('#slider-<?php echo $slider->id; ?>').nivoSlider({
@@ -21,6 +22,8 @@
 		<?php echo ($options['directionNav']) ? 'directionNav: '.$options['directionNav'].',' : null; ?>
 		<?php echo ($options['directionNavHide']) ? 'directionNavHide: '.$options['directionNavHide'].',' : null; ?>
 		<?php echo ($options['controlNav']) ? 'controlNav: '.$options['controlNav'].',' : null; ?>
+		<?php echo ($options['controlNavThumbs']) ? 'controlNavThumbs: '.$options['controlNavThumbs'].',' : null; ?>
+		<?php echo ($options['controlNavThumbs']) ? 'controlNavThumbsFromRel: '.$options['controlNavThumbs'].',' : null; ?>
 		<?php echo ($options['keyboardNav']) ? 'keyboardNav: '.$options['keyboardNav'].',' : null; ?>
 		<?php echo ($options['pauseOnHover']) ? 'pauseOnHover: '.$options['pauseOnHover'].',' : null; ?>
 		<?php echo ($options['manualAdvance']) ? 'manualAdvance: '.$options['manualAdvance'].',' : null; ?>
@@ -32,3 +35,4 @@
 <?php else: ?>
 	<div class="slider-wrapper">Slider contains no images.</div>
 <?php endif; ?>
+<br style="clear:both;">

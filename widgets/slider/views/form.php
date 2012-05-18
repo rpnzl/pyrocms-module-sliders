@@ -68,6 +68,11 @@
 		</li>
 
 		<li class="<?php echo alternator('even', ''); ?>">
+			<label for="controlNavThumbs">Control Nav Thumbs</label>
+			<?php echo form_dropdown('controlNavThumbs', array('true' => 'On', 'false' => 'Off',), $options['controlNavThumbs']); ?>
+		</li>
+
+		<li class="<?php echo alternator('even', ''); ?>">
 			<label for="keyboardNav">Keyboard Nav</label>
 			<?php echo form_dropdown('keyboardNav', array('true' => 'On', 'false' => 'Off',), $options['keyboardNav']); ?>
 		</li>

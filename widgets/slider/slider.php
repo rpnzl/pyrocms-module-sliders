@@ -62,6 +62,10 @@ class Widget_Slider extends Widgets
 			'label' => 'Control Nav',
 		),
 		array(
+			'field' => 'controlNavThumbs',
+			'label' => 'Show Thumbnails',
+		),
+		array(
 			'field' => 'keyboardNav',
 			'label' => 'Keyboard Nav',
 		),
@@ -124,6 +128,7 @@ class Widget_Slider extends Widgets
 		!empty($options['directionNav'])			OR $options['directionNav'] = 'true';
 		!empty($options['directionNavHide'])		OR $options['directionNavHide'] = 'true';
 		!empty($options['controlNav'])				OR $options['controlNav'] = 'true';
+		!empty($options['controlNavThumbs'])		OR $options['controlNavThumbs'] = 'false';
 		!empty($options['keyboardNav'])				OR $options['keyboardNav'] = 'true';
 		!empty($options['pauseOnHover'])			OR $options['pauseOnHover'] = 'true';
 		!empty($options['manualAdvance'])			OR $options['manualAdvance'] = 'false';
