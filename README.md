@@ -22,9 +22,13 @@ Navigate to `addons/shared_addons/modules` and then...
 
 When you install this module in the Add-ons section of your control panel, the installer will add a **Sliders Module** folder to your Files Module as a default container for individual slider folders/assets. If the **Sliders Module** folder already exists the module will use that instead.
 
+--------------------------------
+
 ### General Settings
 
 You'll find the Sliders module settings under the **Content** dropdown in your control panel. Here you can choose the module's main folder, which will contain folders for each of your sliders. You can also append jQuery if it isn't already included in your public theme.
+
+--------------------------------
 
 ### Creating A Slider
 
