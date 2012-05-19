@@ -1,36 +1,48 @@
-# PyroCMS Sliders Module v1.1
+# PyroCMS Sliders Module v1.1.0
 
 ## Description
 
-The Sliders module will allow you to easily add [Nivo Sliders](http://nivo.dev7studios.com/) to your current PyroCMS site. This module utilizes the core Files module to manage each slider's images. The Slider widget includes most of the [Nivo Slider's](http://nivo.dev7studios.com/) javascript options, and we'll hopefully see it extended in the future!
-
+The Sliders module will allow you to easily add [Nivo Sliders](http://nivo.dev7studios.com/) to your current PyroCMS site. This module utilizes the core Files module to manage each slider's images. The Slider widget includes most of the [Nivo Slider's](http://nivo.dev7studios.com/) javascript options, and will hopefully be extended in the future!
 
 ## Installation
 
 ### The Install
 
-#### Standard Download:
+#### Via Standard Download:
 
-Rename the downloaded folder to `sliders` and drop it into your `addons/shared_addons/modules` directory, then install via the Add-ons section in the control panel!
+Rename the downloaded folder to `sliders` and drop it into your `addons/shared_addons/modules` directory, then install via the Add-ons section in the control panel.
 
-#### Git Clone:
+#### Via Git Clone:
 
 Navigate to `addons/shared_addons/modules` and then...
 
 	git clone git://github.com/rpnzl/pyrocms-module-sliders.git sliders
 
-#### Then To Add-ons!
+#### Then Install The Add-on
 
-When you install this module in the Add-ons section of your control panel, the installer will add a **Sliders Module** folder to your Files Module as a default container for individual slider folders/assets.
+When you install this module in the Add-ons section of your control panel, the installer will add a **Sliders Module** folder to your Files Module as a default container for individual slider folders/assets. If the **Sliders Module** folder already exists the module will use that instead.
 
 ### General Settings
 
-You'll find the Sliders module settings under the **Content dropdown** in your control panel. Here you can choose the module's main folder, which will contain folders for each of your sliders. You can also append jQuery if it isn't already included in your public theme.
+You'll find the Sliders module settings under the **Content** dropdown in your control panel. Here you can choose the module's main folder, which will contain folders for each of your sliders. You can also append jQuery if it isn't already included in your public theme.
 
 ### Creating A Slider
 
-Head over to the Files module and open up the folder you chose as the Sliders module container (**Sliders Module** by default). Create a new folder within this container and give it a name. Upload your images to the new folder you created, and change their names if you plan to use captions. Drag and drop each file to change their display order.
+Head over to the Files module and open up the folder you chose as the Sliders module container (**Sliders Module** by default). Create a new folder within this container and give it a name. Upload your images to the new folder, and drag and drop each file to change their display order.
 
+*Note: The following is how I set up my own sliders, but if you think of something better don't hesitate to share!*
+
+Head over to the Widgets Admin section and create a new area, we'll call it "Slider". Return to the Widgets Instances section and drag the Slider widget into your new Slider area. Choose your folder, set your options and save the widget. Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.
+
+#### Widget Options
+
+Here's a list of the options, meanings and default values that are available to customize a Slider widget instance.
+
+* 
+
+### Captions & Links
+
+If you plan to use captions, set the name of each file to the caption you'd like displayed, respectively. If you'd like an image to be a clickable link, right click the file and choose details, then [paste the URL in the description input][].
 
 ## Styling
 
@@ -44,7 +56,6 @@ Take a look at the Slider widget's [display.php](https://github.com/rpnzl/pyrocm
 And specific widget wrappers by their folder id (X)...
 
 	div.widget.slider > div#slider-X-wrapper { background: #000; }
-
 
 ## Important
 
@@ -69,7 +80,6 @@ The slider widget currently utilizes a path that points to `YOUR_SITE/addons/sha
 
 You can find that [here](http://nivo.dev7studios.com/support/jquery-plugin-usage/).
 
-
 ## General Info
 
 * Author: Michael Giuliana
@@ -79,3 +89,8 @@ You can find that [here](http://nivo.dev7studios.com/support/jquery-plugin-usage
 ### Special Thanks
 
 * [Dev7studios](http://nivo.dev7studios.com/), who created and maintain the friendly Nivo Slider.
+
+### Reference
+
+[] http://www.example.com "Enter the URL in the file's description."
+[] http://www.example.com "Enter the URL in the file's description."
