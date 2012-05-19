@@ -50,6 +50,12 @@ Head over to the Files module and open up the folder you chose as the Sliders mo
 
 ![Missing Image](#)
 
+#### Captions & Links
+
+If you plan to use captions, set the name of each file to the caption you'd like displayed, respectively. If you'd like an image to be a clickable link, right click the file and choose details, then paste the URL in the description input.
+
+![Missing Image](#)
+
 #### Widget Options
 
 Here's a list of default values and quick descriptions for the options that are available to customize a Slider widget instance.
@@ -70,12 +76,6 @@ Here's a list of default values and quick descriptions for the options that are 
 * Slices (*15*) For slice animations, # of slices.
 * Box Columns (*8*) For box animations, # of columns.
 * Box Rows (*4*) For box animations, # of rows.
-
-### Captions & Links
-
-If you plan to use captions, set the name of each file to the caption you'd like displayed, respectively. If you'd like an image to be a clickable link, right click the file and choose details, then paste the URL in the description input.
-
-![Missing Image](#)
 
 ## Styling
 
