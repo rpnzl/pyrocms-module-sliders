@@ -32,7 +32,21 @@ Head over to the Files module and open up the folder you chose as the Sliders mo
 
 *Note: The following is how I set up my own sliders, but if you think of something better don't hesitate to share!*
 
-Head over to the Widgets Admin section and create a new area, we'll call it "Slider". Return to the Widgets Instances section and drag the Slider widget into your new Slider area. Choose your folder, set your options and save the widget. Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.
+1) Head over to the Widgets Admin section and create a new area, we'll call it "Slider".
+
+![Alt Text]()
+
+2) Return to the Widgets Instances section and drag the Slider widget into your new Slider area.
+
+![Alt Text]()
+
+3) Choose your folder, set your options and save the widget.
+
+![Alt Text]()
+
+4) Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.
+
+![Alt Text]()
 
 #### Widget Options
 
@@ -43,8 +57,6 @@ Here's a list of the options, meanings and default values that are available to 
 ### Captions & Links
 
 If you plan to use captions, set the name of each file to the caption you'd like displayed, respectively. If you'd like an image to be a clickable link, right click the file and choose details, then paste the URL in the description input.
-
-![Alt Text](http://f.cl.ly/items/2Y271J0o0A3j203r2b2H/Screen%20Shot%202012-05-18%20at%208.52.26%20PM.png)
 
 ## Styling
 
