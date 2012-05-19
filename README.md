@@ -48,13 +48,13 @@ Head over to the Files module and open up the folder you chose as the Sliders mo
 
 4) Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.
 
-![Missing Image](#)
+![Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.](http://f.cl.ly/items/1r1Y3U2A0U0P0T3b3o0V/pyrocms-sliders-module-5.jpg "Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.")
 
 #### Captions & Links
 
 If you plan to use captions, set the name of each file to the caption you'd like displayed. If you'd like a slider image to be a clickable link, right click the image in the core Files module and choose details, then paste the URL in the description input area.
 
-![Missing Image](#)
+![To make an image clickable, paste your URL into the image's description field in the core Files module details view.](http://f.cl.ly/items/1r1Y3U2A0U0P0T3b3o0V/pyrocms-sliders-module-6.jpg "To make an image clickable, paste your URL into the image's description field in the core Files module details view.")
 
 #### Widget Options
 
