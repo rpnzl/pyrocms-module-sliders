@@ -8,7 +8,7 @@
 
 		<li class="<?php echo alternator('even', ''); ?>">
 			<label for="theme">Theme</label>
-			<?php echo form_dropdown('theme', array('none' => 'None', 'default' => 'Default', 'orman' => 'Orman', 'pascal' => 'Pascal',), $options['theme']); ?>
+			<?php echo form_dropdown('theme', array('none' => 'None', 'default' => 'NivoDefault', 'orman' => 'Orman', 'pascal' => 'Pascal',), $options['theme']); ?>
 		</li>
 
 		<li class="<?php echo alternator('even', ''); ?>">
