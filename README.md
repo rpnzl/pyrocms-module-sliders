@@ -60,22 +60,22 @@ If you plan to use captions, set the name of each file to the caption you'd like
 
 Here's a list of default values and quick descriptions for the options that are available to customize a Slider widget instance.
 
-* Choose Slider (*N/A*) Choose which folder to use for content.
-* Theme (*NivoDefault*) Select a NivoSlider theme, or opt out.
-* Captions (*Off*) Display captions, content is taken from each file's name.
-* Slider Effect (*Fade*) All NivoSlider effects are available.
-* Anim Speed (*500*) In milliseconds, slide transition speed.
-* Pause Time (*3000*) In milliseconds, the amount of time between animations.
-* Direction Nav (*On*) Display left and right directional arrows.
-* Direction Nav Hide (*On*) Show direction arrows on hover only.
-* Control Nav (*On*) Display navigation buttons beneath the slider.
-* Control Nav Thumbs (*Off*) Use image thumbs as the control navigation, only takes effect when the theme is set to **none**.
-* Keyboard Nav (*On*) Control slides with left and right arrows.
-* Pause On Hover (*On*) Stop animation while hovering.
-* Manual Advance (*Off*) Force manual transitions.
-* Slices (*15*) For slice animations, # of slices.
-* Box Columns (*8*) For box animations, # of columns.
-* Box Rows (*4*) For box animations, # of rows.
+* Choose Slider - *N/A* - Choose which folder to use for content.
+* Theme - *NivoDefault* - Select a NivoSlider theme, or opt out.
+* Captions - *Off* - Display captions, content is taken from each file's name.
+* Slider Effect - *Fade* - All NivoSlider effects are available.
+* Anim Speed - *500* - In milliseconds, slide transition speed.
+* Pause Time - *3000* - In milliseconds, the amount of time between animations.
+* Direction Nav - *On* - Display left and right directional arrows.
+* Direction Nav Hide - *On* - Show direction arrows on hover only.
+* Control Nav - *On* - Display navigation buttons beneath the slider.
+* Control Nav Thumbs - *Off* - Use image thumbs as the control navigation, only takes effect when the theme is set to **none**.
+* Keyboard Nav - *On* - Control slides with left and right arrows.
+* Pause On Hover - *On* - Stop animation while hovering.
+* Manual Advance - *Off* - Force manual transitions.
+* Slices - *15* - For slice animations, # of slices.
+* Box Columns - *8* - For box animations, # of columns.
+* Box Rows - *4* - For box animations, # of rows.
 
 ## Styling
 
