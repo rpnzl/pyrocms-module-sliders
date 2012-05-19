@@ -34,25 +34,23 @@ Head over to the Files module and open up the folder you chose as the Sliders mo
 
 1) Head over to the Widgets Admin section and create a new area, we'll call it "Slider".
 
-![Alt Text]()
+![Head over to the Widgets Admin section and create a new area, we'll call it "Slider".](http://f.cl.ly/items/1Z1O2x35422O2x43121O/pyrocms-sliders-module-1.jpg "Head over to the Widgets Admin section and create a new area, we'll call it 'Slider'.")
 
 2) Return to the Widgets Instances section and drag the Slider widget into your new Slider area.
 
-![Alt Text]()
+![Return to the Widgets Instances section and drag the Slider widget into your new Slider area.](http://f.cl.ly/items/09440R3u3R2y3y3Y270P/pyrocms-sliders-module-2.jpg "Return to the Widgets Instances section and drag the Slider widget into your new Slider area.")
 
 3) Choose your folder, set your options and save the widget.
 
-![Alt Text]()
+![Choose your folder, set your options and save the widget.](http://f.cl.ly/items/1N352i0m3i0O2O0L0l1g/pyrocms-sliders-module-3.jpg "Choose your folder, set your options and save the widget.")
 
 4) Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.
 
-![Alt Text]()
+![Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.](http://f.cl.ly/items/0M473W2b0N1j3t360H25/pyrocms-sliders-module-4.jpg "Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.")
 
 #### Widget Options
 
 Here's a list of the options, meanings and default values that are available to customize a Slider widget instance.
-
-* 
 
 ### Captions & Links
 
