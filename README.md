@@ -42,7 +42,9 @@ Here's a list of the options, meanings and default values that are available to 
 
 ### Captions & Links
 
-If you plan to use captions, set the name of each file to the caption you'd like displayed, respectively. If you'd like an image to be a clickable link, right click the file and choose details, then ![paste the URL in the description input][2].
+If you plan to use captions, set the name of each file to the caption you'd like displayed, respectively. If you'd like an image to be a clickable link, right click the file and choose details, then paste the URL in the description input.
+
+![Alt Text](http://f.cl.ly/items/2Y271J0o0A3j203r2b2H/Screen%20Shot%202012-05-18%20at%208.52.26%20PM.png)
 
 ## Styling
 
@@ -89,8 +91,3 @@ You can find that [here](http://nivo.dev7studios.com/support/jquery-plugin-usage
 ### Special Thanks
 
 * [Dev7studios](http://nivo.dev7studios.com/), who created and maintain the friendly Nivo Slider.
-
-### Reference
-
-[1] http://www.example.com "Enter the URL in the file's description."
-[2] http://www.example.com "Enter the URL in the file's description."
