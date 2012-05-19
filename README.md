@@ -30,23 +30,25 @@ You'll find the Sliders module settings under the **Content** dropdown in your c
 
 Head over to the Files module and open up the folder you chose as the Sliders module container (**Sliders Module** by default). Create a new folder within this container and give it a name. Upload your images to the new folder, and drag and drop each file to change their display order.
 
+![Create a folder for each of your sliders within the module's default folder](http://f.cl.ly/items/2q3w2h1g3q043W3U1W2Q/pyrocms-sliders-module-1.jpg "Create a folder for each of your sliders within the module's default folder")
+
 *Note: The following is how I set up my own sliders, but if you think of something better don't hesitate to share!*
 
 1) Head over to the Widgets Admin section and create a new area, we'll call it "Slider".
 
-![Head over to the Widgets Admin section and create a new area, we'll call it "Slider".](http://f.cl.ly/items/1Z1O2x35422O2x43121O/pyrocms-sliders-module-1.jpg "Head over to the Widgets Admin section and create a new area, we'll call it 'Slider'.")
+![Head over to the Widgets Admin section and create a new area, we'll call it "Slider".](http://f.cl.ly/items/3B1w1Z1x3e101R3u2y3H/pyrocms-sliders-module-2.jpg "Head over to the Widgets Admin section and create a new area, we'll call it 'Slider'.")
 
 2) Return to the Widgets Instances section and drag the Slider widget into your new Slider area.
 
-![Return to the Widgets Instances section and drag the Slider widget into your new Slider area.](http://f.cl.ly/items/09440R3u3R2y3y3Y270P/pyrocms-sliders-module-2.jpg "Return to the Widgets Instances section and drag the Slider widget into your new Slider area.")
+![Return to the Widgets Instances section and drag the Slider widget into your new Slider area.](http://f.cl.ly/items/0F22113R143e441C1Y0G/pyrocms-sliders-module-3.jpg "Return to the Widgets Instances section and drag the Slider widget into your new Slider area.")
 
 3) Choose your folder, set your options and save the widget.
 
-![Choose your folder, set your options and save the widget.](http://f.cl.ly/items/1N352i0m3i0O2O0L0l1g/pyrocms-sliders-module-3.jpg "Choose your folder, set your options and save the widget.")
+![Choose your folder, set your options and save the widget.](http://f.cl.ly/items/2B0K2T0U0N3Q2R3D2I2j/pyrocms-sliders-module-4.jpg "Choose your folder, set your options and save the widget.")
 
 4) Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.
 
-![Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.](http://f.cl.ly/items/0M473W2b0N1j3t360H25/pyrocms-sliders-module-4.jpg "Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.")
+![Missing Image](cloudapp link)
 
 #### Widget Options
 
@@ -55,6 +57,8 @@ Here's a list of the options, meanings and default values that are available to 
 ### Captions & Links
 
 If you plan to use captions, set the name of each file to the caption you'd like displayed, respectively. If you'd like an image to be a clickable link, right click the file and choose details, then paste the URL in the description input.
+
+![Missing Image](cloudapp link)
 
 ## Styling
 
