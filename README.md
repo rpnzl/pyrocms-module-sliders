@@ -42,7 +42,7 @@ Here's a list of the options, meanings and default values that are available to 
 
 ### Captions & Links
 
-If you plan to use captions, set the name of each file to the caption you'd like displayed, respectively. If you'd like an image to be a clickable link, right click the file and choose details, then [paste the URL in the description input][2].
+If you plan to use captions, set the name of each file to the caption you'd like displayed, respectively. If you'd like an image to be a clickable link, right click the file and choose details, then ![paste the URL in the description input][2].
 
 ## Styling
 
