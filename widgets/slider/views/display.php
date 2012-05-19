@@ -8,7 +8,13 @@
 	<?php endif; ?>
 		<div id="slider-<?php echo $slider->id; ?>" class="nivoSlider">
 			<?php foreach($images as $image): ?>
-			<img src="<?php echo $image->path; ?>" alt="" rel="{{ url:site }}<?php echo ($options['controlNavThumbs'] === 'true') ? 'files/thumb/'.$image->id.'/70/50' : null; ?>" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
+				<?php if($image->description): ?>
+					<a href="<?php echo $image->description; ?>">
+						<img src="<?php echo $image->path; ?>" alt="" rel="{{ url:site }}<?php echo ($options['controlNavThumbs'] === 'true') ? 'files/thumb/'.$image->id.'/70/50' : null; ?>" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
+					</a>
+				<?php else: ?>
+					<img src="<?php echo $image->path; ?>" alt="" rel="{{ url:site }}<?php echo ($options['controlNavThumbs'] === 'true') ? 'files/thumb/'.$image->id.'/70/50' : null; ?>" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
+				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
 	</div>

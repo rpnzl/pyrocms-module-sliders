@@ -162,6 +162,12 @@ class Widget_Slider extends Widgets
 		$query = $this->db->order_by('sort', 'asc')->get_where('files', array('folder_id' => $folder->id, 'type' => 'i'));
 		$images = $query->result();
 
+		// check that the images descriptions are valid urls
+		for($i = 0; $i < count($images); $i++)
+		{
+			$images[$i]->description = preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $images[$i]->description) ? $images[$i]->description : null;
+		}
+
 		// add path to module assets
 		// MODIFY THIS PATH IF YOU'D LIKE TO KEEP THE MODULE ELSEWHERE
 		Asset::add_path('sliders', 'addons/shared_addons/modules/sliders/');
