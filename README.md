@@ -52,7 +52,7 @@ Head over to the Files module and open up the folder you chose as the Sliders mo
 
 #### Captions & Links
 
-If you plan to use captions, set the name of each file to the caption you'd like displayed, respectively. If you'd like an image to be a clickable link, right click the file and choose details, then paste the URL in the description input.
+If you plan to use captions, set the name of each file to the caption you'd like displayed. If you'd like a slider image to be a clickable link, right click the image in the core Files module and choose details, then paste the URL in the description input area.
 
 ![Missing Image](#)
 
