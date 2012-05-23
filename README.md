@@ -4,6 +4,10 @@
 
 The Sliders module will allow you to easily add [Nivo Sliders](http://nivo.dev7studios.com/) to your current PyroCMS site. This module utilizes the core Files module to manage each slider's images. The Slider widget includes most of the [Nivo Slider's](http://nivo.dev7studios.com/) javascript options, and will hopefully be extended in the future!
 
+## Demo
+
+[Visit my site](http://pyrocms.rpnzl.com/sliders) for an interactive demo.
+
 ## Installation
 
 ### The Install
