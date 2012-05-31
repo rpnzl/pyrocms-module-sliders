@@ -1,10 +1,8 @@
 <?php if(count($images) != 0): ?>
-
-	<!-- theme settings -->
 	<?php if($options['theme'] === 'none' || $options['theme'] === 'default'): ?>
-		<div id="slider-<?php echo $slider->id; ?>-wrapper" class="slider-wrapper <?php echo ($options['theme'] != 'none') ? 'theme-default' : null; ?>" style="max-width:100%;width:<?php echo $images[0]->width; ?>px;height:<?php echo $images[0]->height; ?>px;">
+	<div id="slider-<?php echo $slider->id; ?>-wrapper" class="slider-wrapper <?php echo ($options['theme'] != 'none') ? 'theme-default' : null; ?>" style="max-width:100%;width:<?php echo $images[0]->width; ?>px;height:<?php echo $images[0]->height; ?>px;">
 	<?php else: ?>
-		<div id="slider-<?php echo $slider->id; ?>-wrapper" class="slider-wrapper theme-<?php echo $options['theme']; ?>" style="max-width:100%;">
+	<div id="slider-<?php echo $slider->id; ?>-wrapper" class="slider-wrapper theme-<?php echo $options['theme']; ?>" style="max-width:100%;">
 	<?php endif; ?>
 		<div id="slider-<?php echo $slider->id; ?>" class="nivoSlider">
 			<?php foreach($images as $image): ?>
@@ -19,6 +17,9 @@
 		</div>
 	</div>
 	<br style="clear:both;">
+	<?php if($options['controlNavThumbs'] === 'true'): ?>
+	<div class="slider-spacer"></div>
+	<?php endif; ?>
 
 	<script type="text/javascript">
 	$('#slider-<?php echo $slider->id; ?>').nivoSlider({
@@ -38,6 +39,7 @@
 		<?php echo ($options['boxRows']) ? 'boxRows: '.$options['boxRows'].',' : null; ?>
 	});
 	</script>
+
 <?php else: ?>
 	<div class="slider-wrapper">Slider contains no images.</div>
 <?php endif; ?>

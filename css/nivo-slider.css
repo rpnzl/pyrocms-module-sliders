@@ -9,7 +9,8 @@
  * March 2010
  */
  
- 
+div.slider-spacer { height: 25px; } /* for control nav thumbs */
+
 /* The Nivo Slider styles */
 .nivoSlider {
 	position: relative;
