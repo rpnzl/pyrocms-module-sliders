@@ -91,7 +91,26 @@ class Widget_Slider extends Widgets
 		),
 	);
 
-
+        private $themes = array('none' => 'None', 'default' => 'NivoDefault', 'orman' => 'Orman', 'pascal' => 'Pascal');
+        private $slider_effect = array(
+					'sliceDown' => 'Slice Down',
+					'sliceDownLeft' => 'Slice Down Left',
+					'sliceUp' => 'Slice Up',
+					'sliceUpLeft' => 'Slice Up Left',
+					'sliceUpDown' => 'Slice Up Down',
+					'sliceUpDownLeft' => 'Slice Up Down Left',
+					'fold' => 'Fold',
+					'fade' => 'Fade',
+					'random' => 'Random',
+					'slideInRight' => 'Slide In Right',
+					'slideInLeft' => 'Slide In Left',
+					'boxRandom' => 'Box Random',
+					'boxRain' => 'Box Rain',
+					'boxRainReverse' => 'Box Rain Reverse',
+					'boxRainGrow' => 'Box Rain Grow',
+					'boxRainGrowReverse' => 'Box Rain Grow Reverse',
+				);
+        
 	public function form($options)
 	{
 		// load classes, libs
@@ -106,8 +125,7 @@ class Widget_Slider extends Widgets
 		$settings = $this->slider_m->get_settings();
 
 		// get child folders of main module folder
-		$query = $this->db->order_by('sort', 'asc')->get_where('file_folders', array('parent_id' => $settings->folder_id));
-		$folders = $query->result();
+		$folders = $this->db->order_by('sort', 'asc')->get_where('file_folders', array('parent_id' => $settings->folder_id))->result();
 
 		// define the folder dropdown array
 		$select_slider = array();
@@ -138,8 +156,10 @@ class Widget_Slider extends Widgets
 
 		// return the good stuff
 		return array(
-			'options'	=> $options,
-			'select_slider'	=> $select_slider,
+			'options'           => $options,
+			'select_slider'     => $select_slider,
+                        'themes'            => $this->themes,
+                        'slider_effect'     => $this->slider_effect
 		);
 	}
 
@@ -159,43 +179,12 @@ class Widget_Slider extends Widgets
 
 		// get slider and images
 		$folder = $this->file_folders_m->get($options['slider_id']);
-		$query = $this->db->order_by('sort', 'asc')->get_where('files', array('folder_id' => $folder->id, 'type' => 'i'));
-		$images = $query->result();
+		$images = $this->db->order_by('sort', 'asc')->get_where('files', array('folder_id' => $folder->id, 'type' => 'i'))->result();
 
 		// check that the images descriptions are valid urls
 		for($i = 0; $i < count($images); $i++)
 		{
 			$images[$i]->description = preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $images[$i]->description) ? $images[$i]->description : null;
-		}
-
-		// add path to module assets
-		// MODIFY THIS PATH IF YOU'D LIKE TO KEEP THE MODULE ELSEWHERE
-		Asset::add_path('sliders', 'addons/shared_addons/modules/sliders/');
-
-		// include jQuery if needed
-		if($settings->jquery == 1)
-		{
-			$this->template->append_js(array(
-				'sliders::jquery.min.js',
-				'sliders::jquery.nivo.slider.pack.js',
-			));
-		}
-		else
-		{
-			$this->template->append_js('sliders::jquery.nivo.slider.pack.js');
-		}
-
-		// append slider themes
-		if($options['theme'] != 'none')
-		{
-			$this->template->append_css(array(
-				'sliders::nivo-slider.css',
-				'sliders::'.$options['theme'].'.css',
-			));
-		}
-		else
-		{
-			$this->template->append_css(array('sliders::nivo-slider.css',));
 		}
 
 		// return vars

@@ -1,21 +1,19 @@
 <?php if(count($images) != 0): ?>
-	<?php if($options['theme'] === 'none' || $options['theme'] === 'default'): ?>
-	<div id="slider-<?php echo $slider->id; ?>-wrapper" class="slider-wrapper <?php echo ($options['theme'] != 'none') ? 'theme-default' : null; ?>" style="max-width:100%;width:<?php echo $images[0]->width; ?>px;height:<?php echo $images[0]->height; ?>px;">
-	<?php else: ?>
-	<div id="slider-<?php echo $slider->id; ?>-wrapper" class="slider-wrapper theme-<?php echo $options['theme']; ?>" style="max-width:100%;">
-	<?php endif; ?>
-		<div id="slider-<?php echo $slider->id; ?>" class="nivoSlider">
-			<?php foreach($images as $image): ?>
-				<?php if($image->description): ?>
-					<a href="<?php echo $image->description; ?>">
-						<img src="<?php echo $image->path; ?>" alt="" rel="{{ url:site }}<?php echo ($options['controlNavThumbs'] === 'true') ? 'files/thumb/'.$image->id.'/70/50' : null; ?>" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
-					</a>
-				<?php else: ?>
-					<img src="<?php echo $image->path; ?>" alt="" rel="{{ url:site }}<?php echo ($options['controlNavThumbs'] === 'true') ? 'files/thumb/'.$image->id.'/70/50' : null; ?>" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
-				<?php endif; ?>
-			<?php endforeach; ?>
-		</div>
+
+        <div id="slider-<?php echo $slider->id; ?>-wrapper" class="slider-wrapper theme-<?php echo $options['theme']; ?>">
+                <div id="slider-<?php echo $slider->id; ?>" class="nivoSlider">
+                        <?php foreach($images as $image): ?>
+                                <?php if($image->description): ?>
+                                        <a href="<?php echo $image->description; ?>">
+                                                <img src="<?php echo $image->path; ?>" alt="" rel="{{ url:site }}<?php echo ($options['controlNavThumbs'] === 'true') ? 'files/thumb/'.$image->id.'/70/50' : null; ?>" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
+                                        </a>
+                                <?php else: ?>
+                                        <img src="<?php echo $image->path; ?>" alt="" rel="{{ url:site }}<?php echo ($options['controlNavThumbs'] === 'true') ? 'files/thumb/'.$image->id.'/70/50' : null; ?>" <?php echo ($options['captions'] === 'true') ? 'title="'.$image->name.'"' : null; ?> />
+                                <?php endif; ?>
+                        <?php endforeach; ?>
+                </div>
 	</div>
+
 	<br style="clear:both;">
 	<?php if($options['controlNavThumbs'] === 'true'): ?>
 	<div class="slider-spacer"></div>
