@@ -14,9 +14,11 @@ class Module_Sliders extends Module {
 		return array(
 			'name' => array(
 				'en' => 'Sliders',
+				'fr' => 'Sliders',
 			),
 			'description' => array(
 				'en' => 'Add Nivo Sliders to your site and display featured content.',
+				'fr' => 'Ajoutez un slider à votre site et affichez du contenu promotionnel.',
 			),
 			'frontend' => false,
 			'backend'  => true,
