@@ -8,7 +8,7 @@
 
 		<li class="<?php echo alternator('even', ''); ?>">
 			<label for="theme">Theme</label>
-			<?php echo form_dropdown('theme', array('none' => 'None', 'default' => 'NivoDefault', 'orman' => 'Orman', 'pascal' => 'Pascal',), $options['theme']); ?>
+			<?php echo form_dropdown('theme', $themes, $options['theme']); ?>
 		</li>
 
 		<li class="<?php echo alternator('even', ''); ?>">
@@ -18,28 +18,7 @@
 
 		<li class="<?php echo alternator('even', ''); ?>">
 			<label for="effect">Slider Effect</label>
-			<?php echo form_dropdown(
-				'effect',
-				array(
-					'sliceDown' => 'Slice Down',
-					'sliceDownLeft' => 'Slice Down Left',
-					'sliceUp' => 'Slice Up',
-					'sliceUpLeft' => 'Slice Up Left',
-					'sliceUpDown' => 'Slice Up Down',
-					'sliceUpDownLeft' => 'Slice Up Down Left',
-					'fold' => 'Fold',
-					'fade' => 'Fade',
-					'random' => 'Random',
-					'slideInRight' => 'Slide In Right',
-					'slideInLeft' => 'Slide In Left',
-					'boxRandom' => 'Box Random',
-					'boxRain' => 'Box Rain',
-					'boxRainReverse' => 'Box Rain Reverse',
-					'boxRainGrow' => 'Box Rain Grow',
-					'boxRainGrowReverse' => 'Box Rain Grow Reverse',
-				),
-				$options['effect']
-			); ?>
+			<?php echo form_dropdown('effect', $slider_effect,$options['effect']); ?>
 		</li>
 
 		<li class="<?php echo alternator('even', ''); ?>">
