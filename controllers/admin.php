@@ -9,7 +9,6 @@ class Admin extends Admin_Controller {
 	 */
 	protected $section = 'sliders';
 
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -54,7 +53,7 @@ class Admin extends Admin_Controller {
 		// loop through each validation rule
 		foreach ($this->slider_m->_validation_rules as $rule)
 		{
-			$slider_m->{$rule['field']} = set_value($rule['field']);
+			$this->slider_m->{$rule['field']} = set_value($rule['field']);
 		}
 
 		// get folders for dropdown

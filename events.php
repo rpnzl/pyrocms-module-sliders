@@ -34,7 +34,7 @@ class Events_Sliders
         
         if($settings->jquery == 1)
         {
-            $this->template->append_js('sliders::jquery.min.js');
+            $this->ci->template->append_js('sliders::jquery.min.js');
         }
                 
         $this->ci->template->append_js('sliders::jquery.nivo.slider.pack.js');
