@@ -1,36 +1,36 @@
-# PyroCMS Sliders Module v1.1.0
+## PyroCMS Sliders Module v1.1.0
 
-## Description
+### Description
 
 The Sliders module will allow you to easily add [Nivo Sliders](http://nivo.dev7studios.com/) to your current PyroCMS site. This module utilizes the core Files module to manage each slider's images. The Slider widget includes most of the [Nivo Slider's](http://nivo.dev7studios.com/) javascript options, and will hopefully be extended in the future!
 
-## Demo
+### Demo
 
 [Visit my site](http://pyrocms.rpnzl.com/sliders) for an interactive demo.
 
-## Installation
+### Installation
 
-### The Install
+#### The Install
 
-#### Via Standard Download:
+##### Via Standard Download:
 
 Rename the downloaded folder to `sliders` and drop it into your `addons/shared_addons/modules` directory, then install via the Add-ons section in the control panel.
 
-#### Via Git Clone:
+##### Via Git Clone:
 
 Navigate to `addons/shared_addons/modules` and then...
 
 	git clone git://github.com/rpnzl/pyrocms-module-sliders.git sliders
 
-#### Then Install The Add-on
+##### Then Install The Add-on
 
 When you install this module in the Add-ons section of your control panel, the installer will add a **Sliders Module** folder to your Files Module as a default container for individual slider folders/assets. If the **Sliders Module** folder already exists the module will use that instead.
 
-#### General Settings
+##### General Settings
 
 You'll find the Sliders module settings under the **Content** dropdown in your control panel. Here you can choose the module's main folder, which will contain folders for each of your sliders. You can also append jQuery if it isn't already included in your public theme.
 
-## Creating A Slider
+### Creating A Slider
 
 Head over to the Files module and open up the folder you chose as the Sliders module container (**Sliders Module** by default). Create a new folder within this container and give it a name. Upload your images to the new folder, and drag and drop each file to change their display order.
 
@@ -54,13 +54,13 @@ Head over to the Files module and open up the folder you chose as the Sliders mo
 
 ![Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.](http://f.cl.ly/items/1r1Y3U2A0U0P0T3b3o0V/pyrocms-sliders-module-5.jpg "Copy the widget area's slug tag and paste it into the page you'd like to display the slider on.")
 
-#### Captions & Links
+##### Captions & Links
 
 If you plan to use captions, set the name of each file to the caption you'd like displayed. If you'd like a slider image to be a clickable link, right click the image in the core Files module and choose details, then paste the URL in the description input area.
 
 ![To make an image clickable, paste your URL into the image's description field in the core Files module details view.](http://f.cl.ly/items/1r1Y3U2A0U0P0T3b3o0V/pyrocms-sliders-module-6.jpg "To make an image clickable, paste your URL into the image's description field in the core Files module details view.")
 
-#### Widget Options
+##### Widget Options
 
 Here's a list of default values and quick descriptions for the options that are available to customize a Slider widget instance.
 
@@ -81,7 +81,7 @@ Here's a list of default values and quick descriptions for the options that are 
 * Box Columns - *8* - For box animations, # of columns.
 * Box Rows - *4* - For box animations, # of rows.
 
-## Styling
+### Styling
 
 This module includes the collection of themes that are provided with a standard Nivo Slider install - NivoDefault, Orman and Pascal. You can also choose to opt out of using one of these themes and give the slider some custom styling.
 
@@ -94,35 +94,35 @@ And specific widget wrappers by their folder id (X)...
 
 	div.widget.slider > div#slider-X-wrapper { background: #000; }
 
-## Important
+### Important
 
-### A Note On Width
+#### A Note On Width
 
 By default, the Slider widget will not be wider than it's parent container. But due to how Nivo Slider operates, the images will still display at their full width, which means they'll be cut off if they're bigger than the slider's display area.
 
-### A Note On Consistency
+#### A Note On Consistency
 
 The Slider widget will adapt it's size to the **FIRST IMAGE** in it's asset folder. If that image is larger than any subsequent images, there will be noticeable gaps in the slider's display. Keep image sizes consistent, and keep smaller images at the front of the image order.
 
-### Module Location
+#### Module Location
 
 The slider widget currently utilizes a path that points to `YOUR_SITE/addons/shared_addons/modules`. If you'd like to use a different directory instead, you'll have to modify the included Slider widget's run() method.
 
-### Things That Won't Work
+#### Things That Won't Work
 
 * Having two instances of the same slider on the same page.
 * Anchor elements in captions.
 
-### Nivo Slider Documentation
+#### Nivo Slider Documentation
 
 You can find that [here](http://nivo.dev7studios.com/support/jquery-plugin-usage/).
 
-## General Info
+### General Info
 
 * Author: Michael Giuliana
 * Twitter: [@rpnzldesign](http://www.twitter.com/rpnzl)
 * Website: [http://rpnzl.com/](http://rpnzl.com/)
 
-### Special Thanks
+#### Special Thanks
 
 * [Dev7studios](http://nivo.dev7studios.com/), who created and maintain the friendly Nivo Slider.

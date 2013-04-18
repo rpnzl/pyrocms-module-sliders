@@ -102,7 +102,7 @@ class Module_Sliders extends Module {
 
 	public function uninstall()
 	{
-		$this->dbforge->drop_table('sliders');
+		$this->dbforge->drop_table('sliders', true);
 		return true;
 	}
 
