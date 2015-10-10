@@ -1,3 +1,7 @@
+# This project is no longer being maintained
+
+PyroCMS is undergoing major changes for v3 -- join their [Slack community](https://pyrocms.com/chat) for the latest news
+
 ## PyroCMS Sliders Module v1.1.0
 
 ### Description
